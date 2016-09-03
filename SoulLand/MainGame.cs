@@ -11,7 +11,7 @@ namespace SoulLand
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 
-		Logger log;
+		Logger GameLog;
 
 		public MainGame()
 		{
@@ -44,6 +44,11 @@ namespace SoulLand
 			GraphicsDevice.Clear(Color.AliceBlue);
 
 			base.Draw(gameTime);
+		}
+
+		public Logger GetLog()
+		{
+			return GameLog;
 		}
 	}
 }

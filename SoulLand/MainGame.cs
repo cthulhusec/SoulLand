@@ -12,13 +12,15 @@ namespace SoulLand
 
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
-		private Camera2D cam;
-		enum gameState
+		public enum GameState
 		{
 			Intro,
 			MainMenu,
 			Level
 		}
+		public GameState gs;
+
+		public State state;
 
 		//Logger Singleton
 		Logger GameLog;
@@ -30,18 +32,18 @@ namespace SoulLand
 
 			//Create Logger
 			GameLog = new Logger();
-
-			gameState = gameState.Intro;
-
 		
 
 		}
 
+
 		protected override void Initialize()
 		{
-			var viewPortAdapter = new BoxingViewportAdapter (Window, graphics, 800, 480);
-			cam = new Camera2D (viewPortAdapter);
 			base.Initialize();
+
+			state = new LevelState(this, graphics);
+			gs = GameState.Level;
+
 		}
 
 		protected override void LoadContent()
@@ -56,19 +58,14 @@ namespace SoulLand
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
 				Exit();
 
-			if (Keyboard.GetState ().IsKeyDown (Keys.A)) {
-				cam.Move (new Vector2 (-5, 0));
-			}
-			if (Keyboard.GetState ().IsKeyDown (Keys.D)) {
-				cam.Move (new Vector2 (5, 0));
-			}
-			if (Keyboard.GetState ().IsKeyDown (Keys.W)) {
-				cam.Move (new Vector2 (0, -5));
-			}
-			if (Keyboard.GetState ().IsKeyDown (Keys.S)) {
-				cam.Move (new Vector2 (0, 5));
+			switch (gs)
+			{
+				case GameState.Level:
+					state.Update(gameTime);
+					break;
 			}
 
+					
 
 
 			base.Update(gameTime);
@@ -78,10 +75,12 @@ namespace SoulLand
 		{
 			GraphicsDevice.Clear(Color.Beige);
 
-			var transformMatrix = cam.GetViewMatrix ();
-			spriteBatch.Begin (transformMatrix: transformMatrix);
-			MonoGame.Extended.Shapes.SpriteBatchExtensions.DrawRectangle (spriteBatch, new MonoGame.Extended.Shapes.RectangleF (400, 240, 60, 60), Color.Black,10);
-			spriteBatch.End ();
+			switch (gs)
+			{
+				case GameState.Level:
+					state.Draw(gameTime);
+					break;
+			}
 
 			base.Draw(gameTime);
 		}

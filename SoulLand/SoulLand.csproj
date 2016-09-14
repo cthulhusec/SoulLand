@@ -7,8 +7,8 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>SoulLand</RootNamespace>
     <AssemblyName>SoulLand</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,6 +40,9 @@
     <Reference Include="OpenTK">
       <HintPath>..\packages\MonoGame.Framework.DesktopGL.3.5.1.1679\lib\net40\OpenTK.dll</HintPath>
     </Reference>
+    <Reference Include="MonoGame.Extended">
+      <HintPath>..\packages\MonoGame.Extended.0.5.149\lib\MonoGame.Extended.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -51,14 +54,19 @@
     <Compile Include="Util\SaveSystem.cs" />
     <Compile Include="World\World.cs" />
     <Compile Include="World\Tile.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <Compile Include="States\State.cs" />
+    <Compile Include="States\IntroState.cs" />
+    <Compile Include="States\LevelState.cs" />
+    <Compile Include="States\MainMenuState.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Player\" />
     <Folder Include="Util\" />
     <Folder Include="World\" />
+    <Folder Include="States\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
 </Project>

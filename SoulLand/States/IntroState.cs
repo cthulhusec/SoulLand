@@ -7,7 +7,7 @@ namespace SoulLand
 {
 	public class IntroState : State
 	{
-		public IntroState (Game g, GraphicsDeviceManager graph) : base(g, graph)
+		public IntroState (Game g) : base(g)
 		{
 			
 		}

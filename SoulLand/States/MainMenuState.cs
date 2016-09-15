@@ -7,7 +7,7 @@ namespace SoulLand
 {
 	public class MainMenuState : State
 	{
-		public MainMenuState (Game g, GraphicsDeviceManager graph) : base(g, graph)
+		public MainMenuState (Game g) : base(g)
 		{
 		}
 

@@ -7,10 +7,10 @@ using MonoGame.Extended.ViewportAdapters;
 
 namespace SoulLand
 {
-	public class MainGame :Game
+	public class MainGame : Game
 	{
 
-		GraphicsDeviceManager graphics;
+		public GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 		public enum GameState
 		{
@@ -32,7 +32,6 @@ namespace SoulLand
 
 			//Create Logger
 			GameLog = new Logger();
-		
 
 		}
 
@@ -41,7 +40,7 @@ namespace SoulLand
 		{
 			base.Initialize();
 
-			state = new LevelState(this, graphics);
+			state = new LevelState(this);
 			gs = GameState.Level;
 
 		}
@@ -88,6 +87,31 @@ namespace SoulLand
 		public Logger GetLog()
 		{
 			return GameLog;
+		}
+
+		public void ChangeState(GameState gameState)
+		{
+
+			state.UnLoadContent ();
+
+			switch (gs)
+			{
+			case GameState.Level:
+				state = new LevelState (this);
+				gs = gameState;
+					break;
+			case GameState.Intro:
+				state = new IntroState (this);
+				gs = gameState;
+					break;
+			case GameState.MainMenu:
+				state = new MainMenuState (this);
+				gs = gameState;
+					break;
+			}
+
+
+
 		}
 	}
 }

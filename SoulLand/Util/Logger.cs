@@ -6,13 +6,17 @@ namespace SoulLand
 	{
 		//Store path for log file
 		string logFilePath;
+		string errorFilePath;
 
 		//Initialize Logger, write startup message to log file and console
 		public Logger()
 		{
 			logFilePath = Directory.GetCurrentDirectory() + "\\Log.txt";
+			errorFilePath = Directory.GetCurrentDirectory() + "\\ErrorLog.txt";
 			string startUp = String.Format("Soul Land Log File {0}" + Environment.NewLine, DateTime.Now.ToString());
 			File.WriteAllText(logFilePath, startUp);
+			startUp = String.Format("Soul Land Error Log File {0}" + Environment.NewLine, DateTime.Now.ToString());
+			File.WriteAllText(errorFilePath, startUp);
 			Log("Soul Land Starting Up");
 
 		}
@@ -50,7 +54,7 @@ namespace SoulLand
 			Console.WriteLine(message);
 
 			string msg = string.Format("[{0}] Log Message: {1}" + Environment.NewLine, DateTime.Now.ToString("h:mm:ss tt"), message);
-			File.AppendAllText(logFilePath, msg);
+			File.AppendAllText(errorFilePath, msg);
 		}
 	}
 }

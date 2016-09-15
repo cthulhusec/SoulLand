@@ -12,7 +12,7 @@ namespace SoulLand
 	{
 		private Camera2D cam;
 
-		public LevelState (Game g, GraphicsDeviceManager graph) : base(g, graph)
+		public LevelState (Game g) : base(g)
 		{
 
 			var viewPortAdapter = new BoxingViewportAdapter(game.Window, graphics, 800, 480);
@@ -37,6 +37,11 @@ namespace SoulLand
 			{
 				cam.Move(new Vector2(0, 5));
 			}
+
+			if (Keyboard.GetState ().IsKeyDown (Keys.Enter)) {
+				((MainGame)game).ChangeState (MainGame.GameState.Intro);
+			}
+					
 		}
 
 		public override void Draw(GameTime gameTime)

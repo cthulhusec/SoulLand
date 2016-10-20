@@ -58,6 +58,7 @@
     <Compile Include="States\IntroState.cs" />
     <Compile Include="States\LevelState.cs" />
     <Compile Include="States\MainMenuState.cs" />
+    <Compile Include="GameData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Player\" />

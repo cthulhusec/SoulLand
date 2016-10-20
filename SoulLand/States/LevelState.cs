@@ -12,10 +12,10 @@ namespace SoulLand
 	{
 		private Camera2D cam;
 
-		public LevelState (Game g) : base(g)
+		public LevelState (MainGame g) : base(g)
 		{
 
-			var viewPortAdapter = new BoxingViewportAdapter(game.Window, graphics, 800, 480);
+			var viewPortAdapter = new BoxingViewportAdapter(game.Window, graphics, 1920, 1080);
 			cam = new Camera2D(viewPortAdapter);
 		}
 
@@ -37,16 +37,14 @@ namespace SoulLand
 			{
 				cam.Move(new Vector2(0, 5));
 			}
-
-			if (Keyboard.GetState ().IsKeyDown (Keys.Enter)) {
-				((MainGame)game).ChangeState (MainGame.GameState.Intro);
-			}
+				
 					
 		}
 
 		public override void Draw(GameTime gameTime)
 		{
 			var transformMatrix = cam.GetViewMatrix();
+			transformMatrix *= game.globalTransformation;
 			spriteBatch.Begin(transformMatrix: transformMatrix);
 			MonoGame.Extended.Shapes.SpriteBatchExtensions.DrawRectangle(spriteBatch, new MonoGame.Extended.Shapes.RectangleF(400, 240, 60, 60), Color.Black, 10);
 			spriteBatch.End();

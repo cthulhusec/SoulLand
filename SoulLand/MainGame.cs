@@ -12,18 +12,28 @@ namespace SoulLand
 
 		public GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
+		public ScalingViewportAdapter viewportAdapter;
+
+		//Game States
 		public enum GameState
 		{
 			Intro,
 			MainMenu,
 			Level
 		}
+		//Stores current state enum
 		public GameState gs;
-
+		//State Object - "Scene"
 		public State state;
 
 		//Logger Singleton
 		Logger GameLog;
+
+		public Vector2 baseScreenSize = new Vector2(1920, 1080);
+
+		public Matrix globalTransformation;
+
+		public GameData gameData;
 
 		public MainGame()
 		{
@@ -42,6 +52,16 @@ namespace SoulLand
 
 			state = new LevelState(this);
 			gs = GameState.Level;
+
+			ChangeState (GameState.MainMenu);
+			this.graphics.PreferredBackBufferWidth = 1920;
+			this.graphics.PreferredBackBufferHeight = 1080;	
+			this.graphics.ToggleFullScreen ();
+			this.graphics.ApplyChanges ();
+
+			//viewportAdapter = new ScalingViewportAdapter (GraphicsDevice, 1920, 1080);
+			//GraphicsDevice.Viewport = new Viewport(0, 0, Window.ClientBounds.Width, Window.ClientBounds.Height);
+			//viewportAdapter.Reset ();
 
 		}
 
@@ -62,6 +82,9 @@ namespace SoulLand
 				case GameState.Level:
 					state.Update(gameTime);
 					break;
+				case GameState.MainMenu:
+					state.Update (gameTime);
+					break;
 			}
 
 					
@@ -74,13 +97,23 @@ namespace SoulLand
 		{
 			GraphicsDevice.Clear(Color.Beige);
 
+
+			Vector3 screenScalingFactor;
+			float horScaling = (float)GraphicsDevice.PresentationParameters.BackBufferWidth / baseScreenSize.X;
+			float verScaling = (float)GraphicsDevice.PresentationParameters.BackBufferHeight / baseScreenSize.Y;
+			screenScalingFactor = new Vector3(horScaling, verScaling, 1);
+			globalTransformation = Matrix.CreateScale(screenScalingFactor);
+
+
 			switch (gs)
 			{
 				case GameState.Level:
 					state.Draw(gameTime);
 					break;
+				case GameState.MainMenu:
+					state.Draw (gameTime);
+					break;
 			}
-
 			base.Draw(gameTime);
 		}
 
@@ -94,7 +127,7 @@ namespace SoulLand
 
 			state.UnLoadContent ();
 
-			switch (gs)
+			switch (gameState)
 			{
 			case GameState.Level:
 				state = new LevelState (this);

@@ -11,16 +11,16 @@ namespace SoulLand
 	public abstract class State
 	{
 		protected SpriteBatch spriteBatch;
-		protected Game game;
+		protected MainGame game;
 		protected ContentManager cm;
 		protected GraphicsDeviceManager graphics;
 
 
-		protected State (Game g)
+		protected State (MainGame g)
 		{
 			game = g;
 			cm = new ContentManager(g.Services);
-			graphics = ((MainGame)game).graphics;
+			graphics = game.graphics;
 			LoadContent();
 
 			spriteBatch = new SpriteBatch(graphics.GraphicsDevice);

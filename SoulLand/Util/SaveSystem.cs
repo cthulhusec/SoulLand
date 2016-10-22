@@ -16,13 +16,20 @@ namespace SoulLand
 		{
 			string path = Directory.GetCurrentDirectory() + "\\GameSave.bin";
 			IFormatter formatter = new BinaryFormatter();  
-			Stream stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);  
+			Stream stream;
+			try
+			{
+				stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);  
+			}
+			catch (FileNotFoundException e) {
+				return null;
+			}
 			GameData obj = (GameData) formatter.Deserialize(stream);  
 			stream.Close();
 			return obj;
 		}
 
-		static public GameData SaveGameData(GameData gd)
+		static public void SaveGameData(GameData gd)
 		{
 			string path = Directory.GetCurrentDirectory() + "\\GameSave.bin";
 			IFormatter formatter = new BinaryFormatter();  

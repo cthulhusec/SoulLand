@@ -5,10 +5,13 @@ namespace SoulLand
 	[Serializable]
 	public class GameData
 	{
-		Player player;
-		Inventory inv;
+		public Player player;
+		public Inventory inv;
 		public GameData ()
 		{
+
+			player = new Player();
+			inv = new Inventory();
 		}
 	}
 }

@@ -50,18 +50,19 @@ namespace SoulLand
 		{
 			base.Initialize();
 
+			this.graphics.PreferredBackBufferWidth = 1920;
+			this.graphics.PreferredBackBufferHeight = 1080;
+			this.graphics.ToggleFullScreen();
+			this.graphics.ApplyChanges();
+
+			gameData = SaveSystem.LoadGameData();
+
 			state = new LevelState(this);
 			gs = GameState.Level;
 
 			ChangeState (GameState.MainMenu);
-			this.graphics.PreferredBackBufferWidth = 1920;
-			this.graphics.PreferredBackBufferHeight = 1080;	
-			this.graphics.ToggleFullScreen ();
-			this.graphics.ApplyChanges ();
 
-			//viewportAdapter = new ScalingViewportAdapter (GraphicsDevice, 1920, 1080);
-			//GraphicsDevice.Viewport = new Viewport(0, 0, Window.ClientBounds.Width, Window.ClientBounds.Height);
-			//viewportAdapter.Reset ();
+
 
 		}
 

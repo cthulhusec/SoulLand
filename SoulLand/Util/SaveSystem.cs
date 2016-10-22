@@ -21,7 +21,7 @@ namespace SoulLand
 			{
 				stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);  
 			}
-			catch (FileNotFoundException e) {
+			catch (FileNotFoundException) {
 				return null;
 			}
 			GameData obj = (GameData) formatter.Deserialize(stream);  

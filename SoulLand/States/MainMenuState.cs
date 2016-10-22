@@ -95,7 +95,7 @@ namespace SoulLand
 			spriteBatch.Begin(transformMatrix: game.globalTransformation);
 			//draw title
 			//MonoGame.Extended.Shapes.SpriteBatchExtensions.DrawRectangle(spriteBatch,new MonoGame.Extended.Shapes.RectangleF(game.baseScreenSize.X/2-450,game.baseScreenSize.Y/20,800,150),Color.BlueViolet,10);
-			spriteBatch.DrawString(mainTextFont, "Soul Land", new Vector2(game.baseScreenSize.X / 2-(mainTextFont.MeasureString("Soul Land") / 2).X, game.baseScreenSize.Y / 20), Color.Plum );
+			spriteBatch.DrawString(mainTextFont, "SOUL LAND", new Vector2(game.baseScreenSize.X / 2-(mainTextFont.MeasureString("Soul Land") / 2).X, game.baseScreenSize.Y / 20), Color.Plum );
 
 
 			selectionPos = new Vector2 (game.baseScreenSize.X / 2-175, game.baseScreenSize.Y/ 20 + 275);

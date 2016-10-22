@@ -14,6 +14,8 @@ namespace SoulLand
 		SpriteBatch spriteBatch;
 		public ScalingViewportAdapter viewportAdapter;
 
+		KeyboardState oldKeyboardState;
+
 		//Game States
 		public enum GameState
 		{
@@ -62,6 +64,9 @@ namespace SoulLand
 
 			ChangeState (GameState.MainMenu);
 
+			oldKeyboardState = Keyboard.GetState();
+
+
 
 
 		}
@@ -75,9 +80,15 @@ namespace SoulLand
 
 		protected override void Update(GameTime gameTime)
 		{
-			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-				Exit();
+			KeyboardState newState = Keyboard.GetState();
 
+			if (Keyboard.GetState().IsKeyDown(Keys.Escape) && oldKeyboardState.IsKeyDown(Keys.Escape) != true)
+			{
+				if (gs == GameState.Level)
+					ChangeState(GameState.MainMenu);
+				else
+					Exit();
+			}
 			switch (gs)
 			{
 				case GameState.Level:
@@ -89,6 +100,7 @@ namespace SoulLand
 			}
 
 					
+			oldKeyboardState = newState;
 
 
 			base.Update(gameTime);

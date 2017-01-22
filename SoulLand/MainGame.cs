@@ -37,6 +37,8 @@ namespace SoulLand
 
 		public GameData gameData;
 
+
+
 		public MainGame()
 		{
 			graphics = new GraphicsDeviceManager(this);
@@ -58,6 +60,9 @@ namespace SoulLand
 			this.graphics.ApplyChanges();
 
 			gameData = SaveSystem.LoadGameData();
+			if (gameData == null) {
+				gameData = new GameData ();
+			}
 
 			state = new LevelState(this);
 			gs = GameState.Level;
@@ -84,10 +89,15 @@ namespace SoulLand
 
 			if (Keyboard.GetState().IsKeyDown(Keys.Escape) && oldKeyboardState.IsKeyDown(Keys.Escape) != true)
 			{
-				if (gs == GameState.Level)
-					ChangeState(GameState.MainMenu);
-				else
-					Exit();
+				if (gs == GameState.Level && ((LevelState)state).showInv) {
+					((LevelState)state).showInv = false;
+				} else if (gs == GameState.Level) {
+					SaveSystem.SaveGameData (gameData);
+					ChangeState (GameState.MainMenu);
+				} else {
+					SaveSystem.SaveGameData (gameData);
+					Exit ();
+				}
 			}
 			switch (gs)
 			{

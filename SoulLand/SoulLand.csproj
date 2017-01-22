@@ -53,12 +53,17 @@
     <Compile Include="Util\Logger.cs" />
     <Compile Include="Util\SaveSystem.cs" />
     <Compile Include="World\World.cs" />
-    <Compile Include="World\Tile.cs" />
     <Compile Include="States\State.cs" />
     <Compile Include="States\IntroState.cs" />
     <Compile Include="States\LevelState.cs" />
     <Compile Include="States\MainMenuState.cs" />
     <Compile Include="GameData.cs" />
+    <Compile Include="States\EditorState.cs" />
+    <Compile Include="World\Items\Item.cs" />
+    <Compile Include="World\Items\Key.cs" />
+    <Compile Include="World\Items\Charm.cs" />
+    <Compile Include="World\Tiles\Tile.cs" />
+    <Compile Include="World\Mobs\Mob.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Player\" />
@@ -66,6 +71,9 @@
     <Folder Include="World\" />
     <Folder Include="States\" />
     <Folder Include="Content\" />
+    <Folder Include="World\Items\" />
+    <Folder Include="World\Tiles\" />
+    <Folder Include="World\Mobs\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

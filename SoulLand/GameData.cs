@@ -7,11 +7,13 @@ namespace SoulLand
 	{
 		public Player player;
 		public Inventory inv;
+		public World world;
 		public GameData ()
 		{
 
 			player = new Player();
 			inv = new Inventory();
+			world = new World (40, 40);
 		}
 	}
 }

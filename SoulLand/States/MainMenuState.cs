@@ -44,53 +44,59 @@ namespace SoulLand
 		public override void Update(GameTime gameTime)
 		{
 			KeyboardState newState = Keyboard.GetState ();
-			if (newState.IsKeyDown(Keys.Down) && oldState.IsKeyDown(Keys.Down) != true) {
-				selection += 1;
-				if (!resumeAble)
-				{
-					selection = MathHelper.Clamp(selection, 1, 3);
-				}
-				else
-				{
-					selection = MathHelper.Clamp(selection, 0, 3);
-				}
-			}
-			else if (Keyboard.GetState ().IsKeyDown (Keys.Up) && oldState.IsKeyDown(Keys.Up) != true) {
-				selection -= 1;
-				if (!resumeAble)
-				{
-					selection = MathHelper.Clamp(selection, 1, 3);
-				}
-				else
-				{
-					selection = MathHelper.Clamp(selection, 0, 3);
-				}
-			}
 
-			if (newState.IsKeyDown (Keys.Enter) && oldState.IsKeyDown (Keys.Enter) != true) {
-				switch (selection) {
-				case 0:
-					game.ChangeState (MainGame.GameState.Level);
-					break;
-				case 1:
-						if (game.gameData == null)
-						{
-							game.gameData = new GameData();
-							SaveSystem.SaveGameData(game.gameData);
-						}
-						game.ChangeState(MainGame.GameState.Level);
-					break;
-				case 3:
-					game.Exit ();
-					break;
+			switch (mState) {
+			case MenuState.main:
+				if (newState.IsKeyDown(Keys.S) && oldState.IsKeyDown(Keys.S) != true) {
+					selection += 1;
+					if (!resumeAble)
+					{
+						selection = MathHelper.Clamp(selection, 1, 3);
+					}
+					else
+					{
+						selection = MathHelper.Clamp(selection, 0, 3);
+					}
 				}
-			}
 
+				else if (Keyboard.GetState ().IsKeyDown (Keys.W) && oldState.IsKeyDown(Keys.W) != true) {
+					selection -= 1;
+					if (!resumeAble)
+					{
+						selection = MathHelper.Clamp(selection, 1, 3);
+					}
+					else
+					{
+						selection = MathHelper.Clamp(selection, 0, 3);
+					}
+				}
+
+				if (newState.IsKeyDown (Keys.Enter) && oldState.IsKeyDown (Keys.Enter) != true) {
+					switch (selection) {
+					case 0:
+						game.ChangeState (MainGame.GameState.Level);
+						break;
+					case 1:
+						game.gameData = new GameData ();
+						SaveSystem.SaveGameData (game.gameData);
+						game.ChangeState (MainGame.GameState.Level);
+						break;
+					case 2:
+						
+					case 3:
+						game.Exit ();
+						break;
+					}
+				}
+				break;
+				
+			}
 			oldState = newState;
 		}
 
 		public override void Draw(GameTime gameTime)
 		{
+			KeyboardState newState = Keyboard.GetState ();
 			//spriteBatch.Begin (transformMatrix: ((MainGame)game).viewportAdapter.GetScaleMatrix());
 			spriteBatch.Begin(transformMatrix: game.globalTransformation);
 			//draw title
@@ -125,7 +131,6 @@ namespace SoulLand
 					if (selection == 2)
 					{
 						spriteBatch.DrawString(mainTextFont, "Options", new Vector2(game.baseScreenSize.X / 2 - (mainTextFont.MeasureString("Options") / 2).X, game.baseScreenSize.Y / 20 + 600), Color.CadetBlue);
-
 					}
 					else
 					{
@@ -142,9 +147,7 @@ namespace SoulLand
 					break;
 
 			case MenuState.newGame:
-				break;
-
-			case MenuState.resume:
+				
 				break;
 
 			case MenuState.options:

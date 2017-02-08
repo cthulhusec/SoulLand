@@ -74,10 +74,15 @@
     <Folder Include="World\Items\" />
     <Folder Include="World\Tiles\" />
     <Folder Include="World\Mobs\" />
+    <Folder Include="Content\Assets\Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Content\Assets\Images\Floor.png" />
+    <None Include="Content\Assets\Images\LockedDoor.png" />
+    <None Include="Content\Assets\Images\OutOfBounds.png" />
+    <None Include="Content\Assets\Images\Wall.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\MainContent.mgcb" />
@@ -87,5 +92,6 @@
     <Content Include="Content\Assets\Fonts\PressPlayFont_0.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Assets\Images\Menu screen.jpg" />
   </ItemGroup>
 </Project>

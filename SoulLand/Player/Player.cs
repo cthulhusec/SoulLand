@@ -13,7 +13,7 @@ namespace SoulLand
 
 		public Player()
 		{
-
+			health = 5;
 			posx = 20;
 			posy = 20;
 		}

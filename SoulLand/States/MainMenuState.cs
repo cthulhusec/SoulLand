@@ -74,9 +74,11 @@ namespace SoulLand
 				if (newState.IsKeyDown (Keys.Enter) && oldState.IsKeyDown (Keys.Enter) != true) {
 					switch (selection) {
 					case 0:
+						game.gameData.load = true;
 						game.ChangeState (MainGame.GameState.Level);
 						break;
 					case 1:
+						game.gameData.load = false;
 						game.gameData = new GameData ();
 						SaveSystem.SaveGameData (game.gameData);
 						game.ChangeState (MainGame.GameState.Level);
@@ -101,7 +103,7 @@ namespace SoulLand
 			spriteBatch.Begin(transformMatrix: game.globalTransformation);
 			//draw title
 			//MonoGame.Extended.Shapes.SpriteBatchExtensions.DrawRectangle(spriteBatch,new MonoGame.Extended.Shapes.RectangleF(game.baseScreenSize.X/2-450,game.baseScreenSize.Y/20,800,150),Color.BlueViolet,10);
-			spriteBatch.DrawString(mainTextFont, "SOUL LAND", new Vector2(game.baseScreenSize.X / 2-(mainTextFont.MeasureString("Soul Land") / 2).X, game.baseScreenSize.Y / 20), Color.Plum );
+			spriteBatch.DrawString(mainTextFont, "SOUL LAND", new Vector2(game.baseScreenSize.X / 2-(mainTextFont.MeasureString("Soul Land") / 2).X, game.baseScreenSize.Y / 20), Color.Fuchsia );
 
 
 			selectionPos = new Vector2 (game.baseScreenSize.X / 2-175, game.baseScreenSize.Y/ 20 + 275);
@@ -110,39 +112,39 @@ namespace SoulLand
 			case MenuState.main:
 					if (!resumeAble)
 					{
-						spriteBatch.DrawString(mainTextFont, "Resume Game", new Vector2(game.baseScreenSize.X / 2 - (mainTextFont.MeasureString("Resume Game") / 2).X, game.baseScreenSize.Y / 20 + 300), Color.Gray);
+					spriteBatch.DrawString(mainTextFont, "Resume Game", new Vector2(game.baseScreenSize.X / 2 - (mainTextFont.MeasureString("Resume Game") / 2).X, game.baseScreenSize.Y / 20 + 300), Color.CadetBlue);
 					}
 					else if (selection == 0 && resumeAble)
 					{
-						spriteBatch.DrawString(mainTextFont, "Resume Game", new Vector2(game.baseScreenSize.X / 2 - (mainTextFont.MeasureString("Resume Game") / 2).X, game.baseScreenSize.Y / 20 + 300), Color.CadetBlue);
+					spriteBatch.DrawString(mainTextFont, "Resume Game", new Vector2(game.baseScreenSize.X / 2 - (mainTextFont.MeasureString("Resume Game") / 2).X, game.baseScreenSize.Y / 20 + 300), Color.White);
 					}
 					else
 					{
-						spriteBatch.DrawString(mainTextFont, "Resume Game", new Vector2(game.baseScreenSize.X / 2 - (mainTextFont.MeasureString("Resume Game") / 2).X, game.baseScreenSize.Y / 20 + 300), Color.Black);
+					spriteBatch.DrawString(mainTextFont, "Resume Game", new Vector2(game.baseScreenSize.X / 2 - (mainTextFont.MeasureString("Resume Game") / 2).X, game.baseScreenSize.Y / 20 + 300), Color.CadetBlue);
 					}
 					if (selection == 1)
 					{
-						spriteBatch.DrawString(mainTextFont, "New Game", new Vector2(game.baseScreenSize.X / 2 - (mainTextFont.MeasureString("New Game") / 2).X, game.baseScreenSize.Y / 20 + 450), Color.CadetBlue);
+					spriteBatch.DrawString(mainTextFont, "New Game", new Vector2(game.baseScreenSize.X / 2 - (mainTextFont.MeasureString("New Game") / 2).X, game.baseScreenSize.Y / 20 + 450), Color.White);
 					}
 					else
 					{
-						spriteBatch.DrawString(mainTextFont, "New Game", new Vector2(game.baseScreenSize.X / 2 - (mainTextFont.MeasureString("New Game") / 2).X, game.baseScreenSize.Y / 20 + 450), Color.Black);
+					spriteBatch.DrawString(mainTextFont, "New Game", new Vector2(game.baseScreenSize.X / 2 - (mainTextFont.MeasureString("New Game") / 2).X, game.baseScreenSize.Y / 20 + 450), Color.CadetBlue);
 					}
 					if (selection == 2)
 					{
-						spriteBatch.DrawString(mainTextFont, "Options", new Vector2(game.baseScreenSize.X / 2 - (mainTextFont.MeasureString("Options") / 2).X, game.baseScreenSize.Y / 20 + 600), Color.CadetBlue);
+					spriteBatch.DrawString(mainTextFont, "Options", new Vector2(game.baseScreenSize.X / 2 - (mainTextFont.MeasureString("Options") / 2).X, game.baseScreenSize.Y / 20 + 600), Color.White);
 					}
 					else
 					{
-						spriteBatch.DrawString(mainTextFont, "Options", new Vector2(game.baseScreenSize.X / 2 - (mainTextFont.MeasureString("Options") / 2).X, game.baseScreenSize.Y / 20 + 600), Color.Black);
+					spriteBatch.DrawString(mainTextFont, "Options", new Vector2(game.baseScreenSize.X / 2 - (mainTextFont.MeasureString("Options") / 2).X, game.baseScreenSize.Y / 20 + 600), Color.CadetBlue);
 					}
 					if (selection == 3)
 					{
-						spriteBatch.DrawString(mainTextFont, "Quit", new Vector2(game.baseScreenSize.X / 2 - (mainTextFont.MeasureString("Quit") / 2).X, game.baseScreenSize.Y / 20 + 750), Color.CadetBlue);
+					spriteBatch.DrawString(mainTextFont, "Quit", new Vector2(game.baseScreenSize.X / 2 - (mainTextFont.MeasureString("Quit") / 2).X, game.baseScreenSize.Y / 20 + 750), Color.White);
 					}
 					else
 					{
-						spriteBatch.DrawString(mainTextFont, "Quit", new Vector2(game.baseScreenSize.X / 2 - (mainTextFont.MeasureString("Quit") / 2).X, game.baseScreenSize.Y / 20 + 750), Color.Black);
+					spriteBatch.DrawString(mainTextFont, "Quit", new Vector2(game.baseScreenSize.X / 2 - (mainTextFont.MeasureString("Quit") / 2).X, game.baseScreenSize.Y / 20 + 750), Color.CadetBlue);
 					}
 					break;
 

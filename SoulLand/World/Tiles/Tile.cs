@@ -4,9 +4,13 @@ namespace SoulLand
 	[Serializable]
 	public class Tile
 	{
+		public bool floor = false;
+
 		public bool wall = false;
 
 		public bool door = false;
+
+		public bool end = false;
 
 		private string keypass = "";
 

@@ -1,0 +1,24 @@
+Z:\SoulLand-master\SoulLand\bin\Debug\Content\Assets\Fonts\PressPlayFont.xnb
+Z:\SoulLand-master\SoulLand\bin\Debug\Content\Assets\Fonts\PressPlayFont_0.xnb
+Z:\SoulLand-master\SoulLand\bin\Debug\SoulLand.exe
+Z:\SoulLand-master\SoulLand\bin\Debug\SoulLand.pdb
+Z:\SoulLand-master\SoulLand\bin\Debug\MonoGame.Extended.dll
+Z:\SoulLand-master\SoulLand\bin\Debug\MonoGame.Framework.dll
+Z:\SoulLand-master\SoulLand\bin\Debug\NVorbis.dll
+Z:\SoulLand-master\SoulLand\bin\Debug\OpenTK.dll
+Z:\SoulLand-master\SoulLand\bin\Debug\MonoGame.Framework.xml
+Z:\SoulLand-master\SoulLand\obj\x86\Debug\SoulLand.csprojResolveAssemblyReference.cache
+Z:\SoulLand-master\SoulLand\obj\x86\Debug\SoulLand.exe
+Z:\SoulLand-master\SoulLand\obj\x86\Debug\SoulLand.pdb
+Z:\SoulLand - For Steven and Garrett\SoulLand\obj\x86\Debug\SoulLand.csprojResolveAssemblyReference.cache
+Z:\SoulLand - For Steven and Garrett\SoulLand\obj\x86\Debug\SoulLand.exe
+Z:\SoulLand - For Steven and Garrett\SoulLand\obj\x86\Debug\SoulLand.pdb
+Z:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\Content\Assets\Fonts\PressPlayFont.xnb
+Z:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\Content\Assets\Fonts\PressPlayFont_0.xnb
+Z:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\SoulLand.exe
+Z:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\SoulLand.pdb
+Z:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\MonoGame.Extended.dll
+Z:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\MonoGame.Framework.dll
+Z:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\NVorbis.dll
+Z:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\OpenTK.dll
+Z:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\MonoGame.Framework.xml

@@ -114,28 +114,67 @@ namespace SoulLand
 			return "7,2";
 		}
 
-		public String Level2() {
-			for (int i = 0; i < 20; i++) {
-				worldGrid [i, 0].wall = true;
-			}
+		public String Level1() {
+			worldGrid = new Tile[23, 19];
 
-			for (int i = 0; i < 20; i++) {
-				worldGrid [0, i].wall = true;
+			for (int c = 0; c < worldGrid.GetLength (0); c++) {
+				for (int r = 0; r < worldGrid.GetLength (1); r++) {
+					worldGrid [c, r] = new Tile ();
+				}
 			}
-			worldGrid [20, 11].end = true;
-			worldGrid [20, 10].door = true;
-			worldGrid [20, 10].SetKeypass ("diddle");
-			worldGrid [6, 8].item = new Key ("RIP","diddle");
-
-			mobs.Add (new Mob(3,5));
-			mobs.Add (new Mob(3,4));
-			mobs.Add (new Mob(3,3));
-
-			foreach (Mob mob in mobs) {
-				worldGrid[mob.posx, mob.posy].mob = mob;
-			}
-			return "25,15";
+			for (int r = 0; r < worldGrid.GetLength (0); r++) {
+				for (int c = 0; c < worldGrid.GetLength (1); c++) {
+					if (r == 0 && (c >= 1 && c <= 5))  {
+						worldGrid [c, r].wall = true;
+					}
+					if ((r >= 1 && r <= 8) && (c >= 1 && c <= 5)) {
+						if (c == 1 || c == 5) {
+							worldGrid [c, r].wall = true;
+						} else if ( r == 7 && c == 4) {
+							worldGrid [c, r].item = new Key ("Key 1", "Lock1");
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 8 && c > 10) {
+						worldGrid [c, r].wall = true;
+					}
+					if (r == 9 && (c >= 1 && c < 10 && c > 10)) {
+						if (c < 3 || (c > 3 && c < 12) || c == 18) {
+							worldGrid [c, r].wall = true;
+						} else if (c == 3) {
+							worldGrid [c, r].door = true;
+							worldGrid [c, r].SetKeypass ("Lock1");
+							worldGrid [c, r].floor = true;	
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 10 && c >= 2) {
+						if (c == 2 || (c > 8 && c < 12) || c == 18) {
+							worldGrid [c, r].wall = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 11 && c >= 2) {
+						if (c == 2 || c == 18) {
+							worldGrid [c, r].wall = true;
+						} else if (c == 9) {
+							worldGrid [c, r].door = true;
+							worldGrid [c, r].SetKeypass ("Lock2");
+							worldGrid [c, r].floor = true;
+						} else {
+							worlGrid [c, r].floor = true;
+						}
+					}
+					
+				
+					
+			
 		}
+		return "25,15";		
 	}
 }
 

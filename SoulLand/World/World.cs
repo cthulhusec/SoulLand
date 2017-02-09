@@ -186,6 +186,8 @@ namespace SoulLand
 							worldGrid [c, r].floor = true;
 						} else if (c == 6 || c == 20) {
 							worldGrid [c, r].wall = true;
+						} else if (c == 7) {
+							worldGrid [c, r].end = true;
 						} else {
 							worldGrid [c, r].floor = true;
 						}
@@ -342,6 +344,8 @@ namespace SoulLand
 							worldGrid [c, r].floor = true;
 						} else if (c == 0 || c == 5 || c == 6 || c == 13 || c == 18) {
 							worldGrid [c, r].wall = true;
+						} else if (c == 17) {
+							worldGrid [c, r].end = true;
 						} else {
 							worldGrid [c, r].floor = true;
 						}

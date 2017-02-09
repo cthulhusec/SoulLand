@@ -24,6 +24,8 @@ namespace SoulLand
 					return Level1 ();
 				case 2:
 					return Level2 ();
+				case 3:
+					return level3 ();
 				default:
 					return Level1 ();
 			}
@@ -352,6 +354,15 @@ namespace SoulLand
 							   
 			return "1,3";
 		}
+							   
+		public String Level3() {
+			worldGrid = new Tile[];
+
+			for (int c = 0; c < worldGrid.GetLength (0); c++) {
+				for (int r = 0; r < worldGrid.GetLength (1); r++) {
+					worldGrid [c, r] = new Tile ();
+				}
+			}
 	}				
 }
 

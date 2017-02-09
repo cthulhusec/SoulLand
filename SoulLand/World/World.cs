@@ -204,6 +204,45 @@ namespace SoulLand
 							worldGrid [c, r].wall = true;
 						}
 					}
+					if (r == 18 && c <= 16) {
+						if ((c >= 1 && c <= 4) || (c >= 7 && c <= 15)) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if (r == 19 && c <= 16) {
+						if ((c >= 1 && c <= 4) || (c >= 7 && c <= 12)) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if (r == 20) {
+						if (c == 13) {
+							worldGrid [c, r].door = true;
+							worldGrid [c, r].SetKeypass ("Lock3");
+							worldGrid [c, r].floor = true;
+						} else if ((c >= 1 && c <= 4) || (c >= 7 && c <= 17) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if (r == 21) {
+						if (c == 1) {
+							worldGrid [c, r].item = new Key ("Key 2", "Lock2");
+							worldGrid [c, r].floor = true;
+						} else if (c == 0 || c == 5 || c == 6 || c == 13 || c == 18) {
+							worldGrid [c, r].wall = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 22) {
+						worldGrid [c, r].wall = true;
+					}
+					    
  				
 				}
 			return "1,3";

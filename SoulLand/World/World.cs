@@ -169,12 +169,51 @@ namespace SoulLand
 							worlGrid [c, r].floor = true;
 						}
 					}
+					if ((r == 12 || r == 13) && c >= 2) {
+						if (c == 2 || (c > 8 && c < 12) || c == 18) {
+							worldGrid [c, r].wall = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 14 && c >= 2) {
+						if (c == 4 || c == 15) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid[c, r].wall = true;
+						}
+					}
+					if ((r == 15 && (c >= 3 && c <= 16)) {
+						if (c == 4 || c == 15) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid[c, r].wall = true;
+						} 
+					}
+					if (r == 16 && (c >= 3 && c <= 16)) {
+						if (c == 4 || (c >=7 && c <= 12) || c == 15) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if (r == 17 && c <= 16) {
+						if (c == 4 || (c > 6 && c < 13) || c == 15) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+ 				
+				}
+			return "1,3";
+			}
 					
 				
 					
 			
 		}
-		return "25,15";		
+				
 	}
 }
 

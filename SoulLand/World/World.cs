@@ -108,13 +108,97 @@ namespace SoulLand
 							worldGrid [c, r].floor = true;
 						}
 					}
+					if (r == 9 && c <= 16) {
+						if (c == 6) {
+							worldGrid [c, r].door = true;
+							worldGrid [c, r].SetKeypass ("Lock2");
+							worldGrid [c, r].floor = true;
+						} else if (c == 4) {
+							mobs.Add (new Mob (r, c));
+							worldGrid [c, r].floor = true;
+						} else if (c == 0 || (c >= 12 && c <= 14) || c == 16) {
+							worldGrid [c, r].wall = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 10 && (c <= 12 || (c >= 14 && c <= 16))) {
+						if (c == 5) {
+							worldGrid [c, r].item = new Key ("Key 2", "Lock2");
+							worldGrid [c, r].floor = true;
+						} else if (c == 10) {
+							mobs.Add (new Mob (r, c));
+							worldGrid [c, r].floor = true;
+						} else if (c == 0 || c == 6 || c == 12 || c == 16) {
+							worldGrid [c, r].wall = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}	
+					}
+					if (r == 11 && (c <= 12 || (c >= 14 && c <= 16))) {
+						if (c == 15) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;	
+						}
+					}
+					if (r == 12 && (c >= 14 && c <= 16)) {
+						if (c == 15) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;	
+						}
+					}
+					if (r == 13 && c >= 10) {
+						if (c == 15) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;	
+						}
+					} 
+					if ((r == 14 || r == 20) && c >= 10) {
+						if (c == 10 || c == 20) {
+							worldGrid [c, r].wall = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if ((r == 15 || r == 19) && c >= 6) {
+						if (c >= 11 && c <= 19) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;	
+						}
+					}
+					if ((r == 16 || r == 18) && c >= 6) {
+						if (c == 6 || c == 10 || c == 20) {
+							worldGrid [c, r].wall = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 17 && c >= 6) {
+						if (c == 10) {
+							worldGrid [c, r].door = true;
+							worldGrid [c, r].SetKeypass ("Lock3");
+							worldGrid [c, r].floor = true;
+						} else if (c == 6 || c == 20) {
+							worldGrid [c, r].wall = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 21 && c >= 10) {
+						worldGrid [c, r].wall = true;
+					}
+					
 				}
 			}
 
 			return "7,2";
 		}
 
-		public String Level1() {
+		public String Level2() {
 			worldGrid = new Tile[23, 19];
 
 			for (int c = 0; c < worldGrid.GetLength (0); c++) {
@@ -130,18 +214,27 @@ namespace SoulLand
 					if ((r >= 1 && r <= 8) && (c >= 1 && c <= 5)) {
 						if (c == 1 || c == 5) {
 							worldGrid [c, r].wall = true;
-						} else if ( r == 7 && c == 4) {
+						} else if (r == 4 && c == 2) {
+							mobs.Add (new Mob (r, c));
+							worldGrid [c, r].floor = true;
+						} else if (r == 5 && c == 4) {
+							mobs.Add (new Mob (r, c));
+							worldGrid [c, r].floor = true;
+						} else if (r == 7 && c == 2) {
+							mobs.Add (new Mob (r, c));
+							worldGrid [c, r].floor = true;
+						} else if (r == 8 && c == 4) {
 							worldGrid [c, r].item = new Key ("Key 1", "Lock1");
 							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].floor = true;
 						}
 					}
-					if (r == 8 && c > 10) {
+					if (r == 8 && c >= 11) {
 						worldGrid [c, r].wall = true;
 					}
-					if (r == 9 && (c >= 1 && c < 10 && c > 10)) {
-						if (c < 3 || (c > 3 && c < 12) || c == 18) {
+					if (r == 9 && (c >= 1 && c <= 9 && c >= 11)) {
+						if (c =< 2 || (c >= 4 && c <= 11) || c == 18) {
 							worldGrid [c, r].wall = true;
 						} else if (c == 3) {
 							worldGrid [c, r].door = true;
@@ -152,7 +245,10 @@ namespace SoulLand
 						}
 					}
 					if (r == 10 && c >= 2) {
-						if (c == 2 || (c > 8 && c < 12) || c == 18) {
+						if (c == 6 || c == 14) {
+							mobs.Add (new Mob (r, c));
+							worldGrid [c, r].floor = true;
+						} else if (c == 2 || (c >= 9 && c <= 11) || c == 18) {
 							worldGrid [c, r].wall = true;
 						} else {
 							worldGrid [c, r].floor = true;
@@ -161,6 +257,9 @@ namespace SoulLand
 					if (r == 11 && c >= 2) {
 						if (c == 2 || c == 18) {
 							worldGrid [c, r].wall = true;
+						} else if (c == 16) {
+							mobs.Add (new Mob (r, c));
+							worldGrid [c, r].floor = true;
 						} else if (c == 9) {
 							worldGrid [c, r].door = true;
 							worldGrid [c, r].SetKeypass ("Lock2");
@@ -170,7 +269,10 @@ namespace SoulLand
 						}
 					}
 					if ((r == 12 || r == 13) && c >= 2) {
-						if (c == 2 || (c > 8 && c < 12) || c == 18) {
+						if (r == 13 && (c == 6 || c == 13) {
+							mobs.Add (new Mob (r, c));
+							worldGrid [c, r].floor = true;
+						} else if (c == 2 || (c >= 9 && c <= 11) || c == 18) {
 							worldGrid [c, r].wall = true;
 						} else {
 							worldGrid [c, r].floor = true;
@@ -191,14 +293,14 @@ namespace SoulLand
 						} 
 					}
 					if (r == 16 && (c >= 3 && c <= 16)) {
-						if (c == 4 || (c >=7 && c <= 12) || c == 15) {
+						if (c == 4 || (c >= 7 && c <= 12) || c == 15) {
 							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].wall = true;
 						}
 					}
 					if (r == 17 && c <= 16) {
-						if (c == 4 || (c > 6 && c < 13) || c == 15) {
+						if (c == 4 || (c >= 7 && c <= 12) || c == 15) {
 							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].wall = true;
@@ -223,6 +325,9 @@ namespace SoulLand
 							worldGrid [c, r].door = true;
 							worldGrid [c, r].SetKeypass ("Lock3");
 							worldGrid [c, r].floor = true;
+						} else if (c == 2) {
+							mobs.Add (new Mob (r, c));
+							worldGrid [c, r].floor = true;
 						} else if ((c >= 1 && c <= 4) || (c >= 7 && c <= 17) {
 							worldGrid [c, r].floor = true;
 						} else {
@@ -242,17 +347,11 @@ namespace SoulLand
 					if (r == 22) {
 						worldGrid [c, r].wall = true;
 					}
-					    
- 				
 				}
-			return "1,3";
 			}
-					
-				
-					
-			
+							   
+			return "1,3";
 		}
-				
-	}
+	}				
 }
 

@@ -33,7 +33,7 @@ namespace SoulLand
 			cam.MaximumZoom = 2f;
 			cam.MinimumZoom = 0.5f;
 			if (!game.gameData.load) {
-				tempPos = world.ChangeLevel (1);
+				tempPos = world.ChangeLevel (2);
 				String[] temp = tempPos.Split (',');
 				game.gameData.player.posx = Int32.Parse (temp [0]);
 				game.gameData.player.posy = Int32.Parse (temp [1]);
@@ -191,13 +191,6 @@ namespace SoulLand
 
 		public void MobMove() {
 			foreach (Mob a in world.mobs) {
-				if (a.posx > game.gameData.player.posx - 1 && a.posx < game.gameData.player.posx + 1) {
-					if (a.posy > game.gameData.player.posy - 1 && a.posy < game.gameData.player.posy + 1) {
-						world.worldGrid [a.posx, a.posy].mob = null;
-						game.gameData.player.health -= 1;
-					}
-				}
-
 				if (world.worldGrid [a.posx, a.posy].mob != null) {
 
 					if (a.posx > game.gameData.player.posx && a.Within(game.gameData.player)) {
@@ -232,6 +225,13 @@ namespace SoulLand
 							world.worldGrid [a.posx, a.posy + 1].mob = a;
 							a.posy += 1;
 						}
+					}
+
+					if ((a.posx > game.gameData.player.posx - 2 && a.posy == game.gameData.player.posy) || (a.posx > game.gameData.player.posx + 2 && a.posy == game.gameData.player.posy) || (a.posx == game.gameData.player.posx && a.posy > game.gameData.player.posy - 2) || (a.posx == game.gameData.player.posx && a.posy > game.gameData.player.posy - 2))
+					{
+						world.worldGrid[a.posx, a.posy].mob = null;
+						world.mobs.Remove(a);
+						game.gameData.player.health -= 1;
 					}
 				}
 			}

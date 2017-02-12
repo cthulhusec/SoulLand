@@ -412,9 +412,140 @@ namespace SoulLand
 							worldGrid [c, r].wall == true;
 						}
 					}
-
+					if (r == 6 && (c >= 0 && c <= 18)) {
+						if (c == 0 || c == 5 || c == 18) {
+							worldGrid [c, r].wall == true;
+						} else if (c == 11 || c == 16) {
+							mobs.Add (new Mob (c, r));
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 7 && (c >= 0 && c <= 18)) {
+						if ((c >= 1 && c <= 4) || c == 17) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall == true;
+						}
+					}
+					if (r == 8 && (c >= 0 && c <= 18)) {
+						if (c == 0 || c == 16 || c == 18) {
+							worldGrid [c, r].wall == true;
+						} else if (c == 10) {
+							mobs.Add (new Mob (c, r));
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 9 && (c >= 0 && c <= 18)) {
+						if ((c >= 1 && c <= 4) || c == 13 || c == 15 || c == 17) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall == true;
+						}
+					}
+					if (r == 10 && (c >= 0 && c <= 18)) {
+						if (c == 0 || c == 14 || c == 16 || c == 18) {
+							worldGrid [c, r].wall == true;
+						} else if (c == 15) {
+							mobs.Add (new Mob (c, r));
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}	
+					if (r == 11 && (c >= 0 && c <= 18)) {
+						if (c == 15) {
+							worldGrid [c, r].item = new Key ("Key 1", "Lock1");
+							worldGrid [c, r].floor = true;
+						} else if (c == 1) {
+							mobs.Add (new Mob (c, r));
+							worldGrid [c, r].floor = true;
+						} else if ((c >= 2 && c <= 4) || c == 13 || c == 17) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall == true;
+						}
+					}
+					if (r == 12 && (c >= 0 && c <= 18)) {
+						if (c == 0 || c == 12 || c == 14 || c == 16 || c == 18) {
+							worldGrid [c, r].wall == true;
+						} else if (c == 17) {
+							mobs.Add (new Mob (c, r));
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 13 && (c >= 0 && c <= 18)) {
+						if ((c >= 1 && c <= 4) || c == 11 || c == 13 || c == 17) {
+							worldGrid [c, r].floor = true;
+						} else if (c == 15) {
+							mobs.Add (new Mob (c, r));
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall == true;
+						}
+					}
+					if (r == 14 && (c >= 0 && c <= 18)) {
+						if (c == 0 || c == 10 || c == 12 || c == 14 || c == 16 || c == 18) {
+							worldGrid [c, r].wall == true;
+						} else if (c == 3) {
+							mobs.Add (new Mob (c, r));
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 15 && (c >= 0 && c <= 18)) {
+						if ((c >= 1 && c <= 4) || c == 9 || c == 13 || c == 15 || c == 17) {
+							worldGrid [c, r].floor = true;
+						} else if (c == 2 || c == 11) {
+							mobs.Add (new Mob (c, r));
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall == true;
+						}
+					}
+					if (r == 16 && (c >= 0 && c <= 18)) {
+						if (c == 9 || c == 11 || c== 17) {
+							mobs.Add (new Mob (c, r));
+							worldGrid [c, r].floor = true;
+						} else if (c == 0 || c == 8 || c == 10 || c == 16) {
+							worldGrid [c, r].wall == true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 17 && (c >= 0 && c <= 18)) {
+						if (c == 13) {
+							worldGrid [c, r].door = true;
+							worldGrid [c, r].SetKeypass ("Lock1");
+							worldGrid [c, r].floor = true;
+						} else if (c == 17) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall == true;
+						}
+					}
+					if (r == 18 && (c >= 12 && c <= 18)) {
+						if (c == 12 || c == 18) {
+							worldGrid [c, r].wall == true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 19 && (c >= 12 && c <= 18)) {
+						worldGrid [c, r].wall == true;
+					}
 
 				}
+			}
+				
+			foreach (Mob mob in mobs) {
+				worldGrid[mob.posx, mob.posy].mob = mob;
 			}
 			
 			return "4,1";

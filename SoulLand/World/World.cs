@@ -26,6 +26,8 @@ namespace SoulLand
 				return Level2 ();
 			case 3:
 				return Level3 ();
+			case 4:
+				return Level4 ();
 			default:
 				return Level1 ();
 			}
@@ -364,8 +366,96 @@ namespace SoulLand
 			}
 			return "3,1";
 		}
-
 		public String Level3() {
+			worldGrid = new Tile[22, 10];
+
+			for (int c = 0; c < worldGrid.GetLength (0); c++) {
+				for (int r = 0; r < worldGrid.GetLength (1); r++) {
+					worldGrid [c, r] = new Tile ();
+				}
+			}
+			for (int c = 0; c < worldGrid.GetLength (0); c++) {
+				for (int r = 0; r < worldGrid.GetLength (1); r++) {
+					if (r == 0 && (c >= 0 && c <= 21)) {
+						worldGrid [c, r].wall = true;
+					}
+					if (r == 1 && (c >= 0 && c <= 21)) {
+						if (c == 19) {
+							mobs.Add (new Mob (c, r));
+							worldGrid [c, r].floor = true;
+						} else if ((c >= 1 && c <= 3) || (c >=6 && c <= 8) || (c >= 11 && c <= 13) || (c >= 16 && c <= 20)) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if (r == 2 && (c >= 0 && c <= 21)) {
+						if (c == 7 || c == 11 || c == 16) {
+							mobs.Add (new Mob (c, r));
+							worldGrid [c, r].floor = true;
+						} else if ((c >= 1 && c <= 3) || (c >=6 && c <= 8) || (c >= 11 && c <= 13) || (c >= 16 && c <= 18) || c == 20) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if (r == 3 && (c >= 0 && c <= 21)) {
+						if (c == 4 || c == 13 || c == 18) {
+							mobs.Add (new Mob (c, r));
+							worldGrid [c, r].floor = true;
+						} else if (c == 0 || (c >= 9 && c <= 10) || c == 19 || c == 21) {
+							worldGrid [c, r].wall = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 4 && (c >= 0 && c <= 21)) {
+						if ((c >= 1 && c <= 3) || (c >= 6 && c <= 13) || (c >= 16 && c <= 18) || c == 20) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if ((r == 5 || r == 6) && (c >= 0 && c <= 21)) {
+						if (r ==5 && (c == 7 || c == 12 || c == 17)) {
+							mobs.Add (new Mob (c, r));
+							worldGrid [c, r].floor = true;
+						} else if ((c >= 1 && c <= 3) || (c >=6 && c <= 8) || (c >= 11 && c <= 13) || (c >= 16 && c <= 18) || c == 20) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if (r == 7 && (c >= 0 && c <= 21)) {
+						if (c == 3) {
+							worldGrid [c, r].door = true;
+							worldGrid [c, r].SetKeypass ("Lock1");
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if (r == 8 && (c >= 2 && c <= 8)) {
+						if (c == 2 || c == 8) {
+							worldGrid [c, r].wall = true;
+						} else if (c == 7) {
+							worldGrid [c, r].end = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 9 && (c >= 2 && c <= 8)) {
+						worldGrid [c, r].wall = true;
+					}
+					
+				}
+			}
+			foreach (Mob mob in mobs) {
+				worldGrid[mob.posx, mob.posy].mob = mob;
+			}
+			return "1,4";
+		}
+		public String Level4() {
 			worldGrid = new Tile[19, 20];
 
 			for (int c = 0; c < worldGrid.GetLength (0); c++) {

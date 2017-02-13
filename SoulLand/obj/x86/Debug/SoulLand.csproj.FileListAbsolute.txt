@@ -22,3 +22,6 @@ Z:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\MonoGame.Framework.dll
 Z:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\NVorbis.dll
 Z:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\OpenTK.dll
 Z:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\MonoGame.Framework.xml
+E:\SoulLand - For Steven and Garrett\SoulLand\obj\x86\Debug\SoulLand.csprojResolveAssemblyReference.cache
+E:\SoulLand - For Steven and Garrett\SoulLand\obj\x86\Debug\SoulLand.exe
+E:\SoulLand - For Steven and Garrett\SoulLand\obj\x86\Debug\SoulLand.pdb

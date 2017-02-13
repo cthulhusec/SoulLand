@@ -28,6 +28,8 @@ namespace SoulLand
 				return Level3 ();
 			case 4:
 				return Level4 ();
+			case 5:
+				return Level5 ();
 			default:
 				return Level1 ();
 			}
@@ -640,6 +642,41 @@ namespace SoulLand
 			
 			return "4,1";
 		}
+		public String Level5() {
+			worldGrid = new Tile[22, 21];
+
+			for (int c = 0; c < worldGrid.GetLength (0); c++) {
+				for (int r = 0; r < worldGrid.GetLength (1); r++) {
+					worldGrid [c, r] = new Tile ();
+				}
+			}
+			for (int c = 0; c < worldGrid.GetLength (0); c++) {
+				for (int r = 0; r < worldGrid.GetLength (1); r++) {
+					if (r == 0 && (c >= 1 && c <= 11) {
+						worldGrid [c, r].wall == true;
+					}
+					if (r == 1 && (c >= 1 && c <= 11) {
+						if (c == 1 || c == 11) {
+							worldGrid [c, r].wall == true;
+						} else if (c == 3) {
+							worldGrid [c, r].item = new Key ("Key 1", "Lock1");
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					
+				
+				}
+			}
+			
+			foreach (Mob mob in mobs) {
+				worldGrid[mob.posx, mob.posy].mob = mob;
+			}
+			
+			return "2,19";
+		}
+		
 	}				
 }
 

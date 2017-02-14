@@ -208,7 +208,24 @@ namespace SoulLand
 			return "7,2";
 		}
 
-		
+		public String Level3() {
+			worldGrid = new Tile[22, 10];
+
+			for (int c = 0; c < worldGrid.GetLength (0); c++) {
+				for (int r = 0; r < worldGrid.GetLength (1); r++) {
+					worldGrid [c, r] = new Tile ();
+				}
+			}
+
+			for (int c = 0; c < worldGrid.GetLength (0); c++) {
+				for (int r = 0; r < worldGrid.GetLength (1); r++) {
+					if (r == 0 && (c >= 0 && c <= 21)) {
+						worldGrid[c, r].wall = true;
+					}
+					if (r == 1 && (c == 0 || 4 <= r <= 5 ||)) {
+						worldGrid[c, r].wall = true;
+					}
+					if (c == 1 && (
 		
 	}				
 }

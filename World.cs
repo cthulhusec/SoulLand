@@ -219,31 +219,154 @@ namespace SoulLand
 
 			for (int c = 0; c < worldGrid.GetLength (0); c++) {
 				for (int r = 0; r < worldGrid.GetLength (1); r++) {
-					if (c == 0 && (r >= 17 && r <= 22)) {
-						worldGrid [c, r].wall = true;
-					}
-					if (c == 1 && ((r >= 0 && r <= 9) || (r >= 17 && r <= 22))) {
-						if (r == 20) {
-							mobs.Add (new Mob (c, r));
-							worldGrid [c, r].floor = true;
-						} else if ((r >= 1 && r <= 8) || (r <= 18 && r >= 21)) {
-							worldGrid [c, r].floor = true;
-						} else {
-							worldGrid [c, r].wall = true;
-						}
-					}
-					if (c == 2 (r >= 0 && r <= 22)) {
-						if (r == 9) {
-							
-						}
-					}
-
-
-				}
-			}
-		
-		
-		}
+					if (r == 0 && (c >= 1 && c <= 5))  {		
+ 						worldGrid [c, r].wall = true;		
+ 					}		
+ 					if ((r >= 1 && r <= 8) && (c >= 1 && c <= 5)) {		
+ 						if (c == 1 || c == 5) {		
+ 							worldGrid [c, r].wall = true;		
+ 						} else if (r == 4 && c == 2) {		
+ 							mobs.Add (new Mob(c, r));		
+ 							worldGrid [c, r].floor = true;		
+ 						} else if (r == 5 && c == 4) {		
+ 							mobs.Add (new Mob(c, r));		
+ 							worldGrid [c, r].floor = true;		
+ 						} else if (r == 7 && c == 2) {		
+ 							mobs.Add (new Mob(c, r));		
+ 							worldGrid [c, r].floor = true;		
+ 						} else if (r == 8 && c == 4) {		
+ 							worldGrid [c, r].item = new Key ("Key 1", "Lock1");		
+ 							worldGrid [c, r].floor = true;				
+ 						} else {		
+ 							worldGrid [c, r].floor = true;		
+ 						}		
+ 					}		
+ 					if (r == 8 && (c >= 11 && c <= 18)) {		
+ 						worldGrid [c, r].wall = true;		
+ 					}		
+ 					if (r == 9 && (c >= 1 && c <= 9 || c >= 11)) {		
+ 						if (c <= 2 || (c >= 4 && c <= 11) || c == 18) {		
+ 							worldGrid [c, r].wall = true;		
+ 						} else if (c == 3) {		
+ 							worldGrid [c, r].door = true;		
+ 							worldGrid [c, r].SetKeypass ("Lock1");		
+ 							worldGrid [c, r].floor = true;			
+ 						} else {		
+ 							worldGrid [c, r].floor = true;		
+ 						}		
+ 					}		
+ 					if (r == 10 && (c >= 2 && c <= 18)) {		
+ 						if (c == 6 || c == 14) {		
+ 							mobs.Add (new Mob (c, r));		
+ 							worldGrid [c, r].floor = true;		
+ 						} else if (c == 2 || (c >= 9 && c <= 11) || c == 18) {		
+ 							worldGrid [c, r].wall = true;		
+ 						} else {		
+ 							worldGrid [c, r].floor = true;		
+ 						}		
+ 					}		
+ 					if (r == 11 && (c >= 2 && c <= 18)) {		
+ 						if (c == 2 || c == 18) {		
+ 							worldGrid [c, r].wall = true;		
+ 						} else if (c == 16) {		
+ 							mobs.Add (new Mob (c, r));		
+ 							worldGrid [c, r].floor = true;		
+ 						} else if (c == 9) {		
+ 							worldGrid [c, r].door = true;		
+ 							worldGrid [c, r].SetKeypass ("Lock2");		
+ 							worldGrid [c, r].floor = true;		
+ 						} else {		
+ 							worldGrid [c, r].floor = true;		
+ 						}		
+ 					}		
+ 					if ((r == 12 || r == 13) && (c >= 2 && c <= 18)) {		
+ 						if (r == 13 && (c == 6 || c == 13)) {		
+ 							mobs.Add (new Mob (c, r));		
+ 							worldGrid [c, r].floor = true;		
+ 						} else if (c == 2 || (c >= 9 && c <= 11) || c == 18) {		
+ 							worldGrid [c, r].wall = true;		
+ 						} else {		
+ 							worldGrid [c, r].floor = true;		
+ 						}		
+ 					}		
+ 					if (r == 14 && (c >= 2 && c <= 18)) {		
+ 						if (c == 4 || c == 15) {		
+ 							worldGrid [c, r].floor = true;		
+ 						} else {		
+ 							worldGrid[c, r].wall = true;		
+ 						}		
+ 					}		
+ 					if (r == 15 && (c >= 3 && c <= 16)) {		
+ 						if (c == 4 || c == 15) {		
+ 							worldGrid [c, r].floor = true;		
+ 						} else {		
+ 							worldGrid[c, r].wall = true;		
+ 						} 		
+ 					}		
+ 					if (r == 16 && (c >= 3 && c <= 16)) {		
+ 						if (c == 4 || (c >= 7 && c <= 12) || c == 15) {		
+ 							worldGrid [c, r].floor = true;		
+ 						} else {		
+ 							worldGrid [c, r].wall = true;		
+ 						}		
+ 					}		
+ 					if (r == 17 && (c <= 16 && c >= 18)) {		
+ 						if (c == 4 || (c >= 7 && c <= 12) || c == 15) {		
+ 							worldGrid [c, r].floor = true;		
+ 						} else {		
+ 							worldGrid [c, r].wall = true;		
+ 						}		
+ 					}		
+ 					if (r == 18 && (c >= 0 && c <= 16)) {		
+ 						if ((c >= 1 && c <= 4) || (c >= 7 && c <= 15)) {		
+ 							worldGrid [c, r].floor = true;		
+ 						} else {		
+ 							worldGrid [c, r].wall = true;		
+ 						}		
+ 					}		
+ 					if (r == 19 && (c >= 0 && c <= 18)) {		
+ 						if ((c >= 1 && c <= 4) || (c >= 7 && c <= 12)) {		
+ 							worldGrid [c, r].floor = true;		
+ 						} else {		
+ 							worldGrid [c, r].wall = true;		
+ 						}		
+ 					}		
+ 					if (r == 20 && (c >= 0 && c <= 18)) {		
+ 						if (c == 13) {		
+ 							worldGrid [c, r].door = true;		
+ 							worldGrid [c, r].SetKeypass ("Lock3");		
+ 							worldGrid [c, r].floor = true;		
+ 						} else if (c == 2) {		
+ 							mobs.Add (new Mob (c, r));		
+ 							worldGrid [c, r].floor = true;		
+ 						} else if ((c >= 1 && c <= 4) || (c >= 7 && c <= 17)) {		
+ 							worldGrid [c, r].floor = true;		
+ 						} else if (c == 0 || c == 5 || c == 6 || c == 18) {		
+ 							worldGrid [c, r].wall = true;		
+ 						}		
+ 					}		
+ 					if (r == 21 && (c >= 0 && c <= 18)) {		
+ 						if (c == 1) {		
+ 							worldGrid [c, r].item = new Key ("Key 2", "Lock2");		
+ 							worldGrid [c, r].floor = true;		
+ 						} else if (c == 0 || c == 5 || c == 6 || c == 13 || c == 18) {		
+ 							worldGrid [c, r].wall = true;		
+ 						} else if (c == 17) {		
+ 							worldGrid [c, r].end = true;		
+ 						} else {		
+ 							worldGrid [c, r].floor = true;		
+ 						}		
+ 					}		
+ 					if (r == 22 && (c >= 0 && c <= 18) {		
+ 						worldGrid [c, r].wall = true;		
+ 					}		
+ 				}		
+ 			}		
+ 			foreach (Mob mob in mobs) {		
+ 				worldGrid[mob.posx, mob.posy].mob = mob;		
+ 			}		
+ 			return "3,1";		
+ 		}			
 		
 		
 	}				

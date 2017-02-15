@@ -395,7 +395,7 @@ namespace SoulLand
 						if (c == 7 || c == 11 || c == 16) {
 							mobs.Add (new Mob (c, r));
 							worldGrid [c, r].floor = true;
-						} else if ((c >= 1 && c <= 3) || (c >=6 && c <= 8) || (c >= 11 && c <= 13) || (c >= 16 && c <= 18) || c == 20) {
+						} else if ((c >= 1 && c <= 3) || (c >=6 && c <= 8) || (c >= 11 && c <= 13) || (c >= 16 && c <= 20)) {
 							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].wall = true;
@@ -405,14 +405,14 @@ namespace SoulLand
 						if (c == 4 || c == 13 || c == 18) {
 							mobs.Add (new Mob (c, r));
 							worldGrid [c, r].floor = true;
-						} else if (c == 0 || (c >= 9 && c <= 10) || c == 19 || c == 21) {
+						} else if (c == 0 || (c >= 9 && c <= 10) || c == 21) {
 							worldGrid [c, r].wall = true;
 						} else {
 							worldGrid [c, r].floor = true;
 						}
 					}
 					if (r == 4 && (c >= 0 && c <= 21)) {
-						if ((c >= 1 && c <= 3) || (c >= 6 && c <= 13) || (c >= 16 && c <= 18) || c == 20) {
+						if ((c >= 1 && c <= 3) || (c >= 6 && c <= 13) || (c >= 16 && c <= 20)) {
 							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].wall = true;
@@ -422,7 +422,7 @@ namespace SoulLand
 						if (r ==5 && (c == 7 || c == 12 || c == 17)) {
 							mobs.Add (new Mob (c, r));
 							worldGrid [c, r].floor = true;
-						} else if ((c >= 1 && c <= 3) || (c >=6 && c <= 8) || (c >= 11 && c <= 13) || (c >= 16 && c <= 18) || c == 20) {
+						} else if ((c >= 1 && c <= 3) || (c >=6 && c <= 8) || (c >= 11 && c <= 13) || (c >= 16 && c <= 20)) {
 							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].wall = true;
@@ -572,7 +572,7 @@ namespace SoulLand
 						}
 					}
 					if (r == 13 && (c >= 0 && c <= 18)) {
-						if ((c >= 1 && c <= 4) || c == 11 || c == 13 || c == 17) {
+						if ((c >= 1 && c <= 4) || c == 9 || c == 11 || c == 13 || c == 17) {
 							worldGrid [c, r].floor = true;
 						} else if (c == 15) {
 							mobs.Add (new Mob (c, r));
@@ -605,7 +605,7 @@ namespace SoulLand
 						if (c == 9 || c == 11 || c== 17) {
 							mobs.Add (new Mob (c, r));
 							worldGrid [c, r].floor = true;
-						} else if (c == 0 || c == 8 || c == 10 || c == 16) {
+						} else if (c == 0 || c == 10 || c == 16 || c == 18) {
 							worldGrid [c, r].wall = true;
 						} else {
 							worldGrid [c, r].floor = true;

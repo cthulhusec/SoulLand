@@ -508,7 +508,7 @@ namespace SoulLand
 						if (c == 0 || c == 5 || c == 18) {
 							worldGrid [c, r].wall = true;
 						} else if (c == 11 || c == 16) {
-							mobs.Add (new Mob (c, r));
+							// mobs.Add (new Mob (c, r));
 							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].floor = true;
@@ -525,7 +525,7 @@ namespace SoulLand
 						if (c == 0 || c == 16 || c == 18) {
 							worldGrid [c, r].wall = true;
 						} else if (c == 10) {
-							mobs.Add (new Mob (c, r));
+							// mobs.Add (new Mob (c, r));
 							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].floor = true;
@@ -542,7 +542,7 @@ namespace SoulLand
 						if (c == 0 || c == 14 || c == 16 || c == 18) {
 							worldGrid [c, r].wall = true;
 						} else if (c == 15) {
-							mobs.Add (new Mob (c, r));
+							// mobs.Add (new Mob (c, r));
 							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].floor = true;
@@ -553,7 +553,7 @@ namespace SoulLand
 							worldGrid [c, r].item = new Key ("Key 1", "Lock1");
 							worldGrid [c, r].floor = true;
 						} else if (c == 1) {
-							mobs.Add (new Mob (c, r));
+							// mobs.Add (new Mob (c, r));
 							worldGrid [c, r].floor = true;
 						} else if ((c >= 2 && c <= 4) || c == 13 || c == 17) {
 							worldGrid [c, r].floor = true;
@@ -565,7 +565,7 @@ namespace SoulLand
 						if (c == 0 || c == 12 || c == 14 || c == 16 || c == 18) {
 							worldGrid [c, r].wall = true;
 						} else if (c == 17) {
-							mobs.Add (new Mob (c, r));
+							// mobs.Add (new Mob (c, r));
 							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].floor = true;
@@ -575,7 +575,7 @@ namespace SoulLand
 						if ((c >= 1 && c <= 4) || c == 9 || c == 11 || c == 13 || c == 17) {
 							worldGrid [c, r].floor = true;
 						} else if (c == 15) {
-							mobs.Add (new Mob (c, r));
+							// mobs.Add (new Mob (c, r));
 							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].wall = true;
@@ -585,7 +585,7 @@ namespace SoulLand
 						if (c == 0 || c == 10 || c == 12 || c == 14 || c == 16 || c == 18) {
 							worldGrid [c, r].wall = true;
 						} else if (c == 3) {
-							mobs.Add (new Mob (c, r));
+							// mobs.Add (new Mob (c, r));
 							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].floor = true;
@@ -595,7 +595,7 @@ namespace SoulLand
 						if ((c >= 1 && c <= 4) || c == 9 || c == 13 || c == 15 || c == 17) {
 							worldGrid [c, r].floor = true;
 						} else if (c == 2 || c == 11) {
-							mobs.Add (new Mob (c, r));
+							// mobs.Add (new Mob (c, r));
 							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].wall = true;
@@ -603,7 +603,7 @@ namespace SoulLand
 					}
 					if (r == 16 && (c >= 0 && c <= 18)) {
 						if (c == 9 || c == 11 || c== 17) {
-							mobs.Add (new Mob (c, r));
+							// mobs.Add (new Mob (c, r));
 							worldGrid [c, r].floor = true;
 						} else if (c == 0 || c == 10 || c == 16 || c == 18) {
 							worldGrid [c, r].wall = true;

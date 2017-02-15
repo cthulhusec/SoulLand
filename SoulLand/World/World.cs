@@ -37,6 +37,7 @@ namespace SoulLand
 		}
 
 		public String Level1() {
+			triggerNo = 0;
 			worldGrid = new Tile[22, 22];
 
 			for (int c = 0; c < worldGrid.GetLength (0); c++) {
@@ -209,6 +210,7 @@ namespace SoulLand
 		}
 
 		public String Level2() {
+			triggerNo = 0;
 			worldGrid = new Tile[19, 23];
 
 			for (int c = 0; c < worldGrid.GetLength (0); c++) {
@@ -369,6 +371,7 @@ namespace SoulLand
 			return "3,1";
 		}
 		public String Level3() {
+			triggerNo = 0;
 			worldGrid = new Tile[22, 10];
 
 			for (int c = 0; c < worldGrid.GetLength (0); c++) {
@@ -458,6 +461,7 @@ namespace SoulLand
 			return "1,4";
 		}
 		public String Level4() {
+			triggerNo = 0;
 			worldGrid = new Tile[19, 20];
 
 			for (int c = 0; c < worldGrid.GetLength (0); c++) {
@@ -643,6 +647,7 @@ namespace SoulLand
 			return "4,1";
 		}
 		public String Level5() {
+			triggerNo = 0;
 			worldGrid = new Tile[22, 21];
 
 			for (int c = 0; c < worldGrid.GetLength (0); c++) {

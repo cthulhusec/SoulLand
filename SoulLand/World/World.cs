@@ -33,6 +33,8 @@ namespace SoulLand
 				return Level5 ();
 			case 6:
 				return Level6 ();
+			case 7:
+				return Level7 ();
 			default:
 				return Level1 ();
 			}
@@ -1013,12 +1015,74 @@ namespace SoulLand
 					}
 				}
 			}
-
+			
 			foreach (Mob mob in mobs) {
 				worldGrid[mob.posx, mob.posy].mob = mob;
 			}
 
 			return "18,2";
+		}
+		public String Level7() {
+			triggerNo = 0;
+			worldGrid = new Tile[14, 23];
+
+			for (int c = 0; c < worldGrid.GetLength (0); c++) {
+				for (int r = 0; r < worldGrid.GetLength (1); r++) {
+					worldGrid [c, r] = new Tile ();
+				}
+			}
+			for (int c = 0; c < worldGrid.GetLength (0); c++) {
+				for (int r = 0; r < worldGrid.GetLength (1); r++) {
+					if (r == 0 && (c >= 0 && c <= 13)) {
+						worldGrid [c, r].wall = true;
+					}
+					if (r == 1 && (c >= 0 && c <= 13)) {
+						if (c == 4) {
+							worldGrid [c, r].door = true;
+							worldGrid [c, r].SetKeypass ("Lock1");
+							worldGrid [c, r].floor = true;
+						} else if (c == 0 || c ==13) {
+							worldGrid [c, r].wall = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 2 && (c >= 0 && c <= 13)) {
+						if (c == 6 || c == 12) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if ((r == 3 || r == 4) && (c >= 0 && c <= 13)) {
+						if (c == 0 || c == 11 || c == 13) {
+							worldGrid [c, r].wall = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 5 && (c >= 0 && c <= 13)) {
+						if ((c >= 1 && c <= 8) || c == 12) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if ((r >= 6 && r <= 8) && (c >= 0 && c <= 13)) {
+						if (c == 0 || c == 9 || c == 13) {
+							worldGrid [c, r].wall = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					
+				}
+			}
+			foreach (Mob mob in mobs) {
+				worldGrid[mob.posx, mob.posy].mob = mob;
+			}
+
+			return "8,11";
 		}
 
 	}				

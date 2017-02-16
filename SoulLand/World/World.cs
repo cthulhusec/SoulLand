@@ -826,7 +826,7 @@ namespace SoulLand
 
 			return "2,19";
 		}
-		public String Level2() {
+		public String Level6() {
 			triggerNo = 0;
 			worldGrid = new Tile[20, 25];
 

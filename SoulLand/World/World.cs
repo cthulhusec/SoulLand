@@ -7,6 +7,7 @@ namespace SoulLand
 	{
 		public ArrayList mobs = new ArrayList ();
 		public int triggerNo;
+		public int currentLevel;
 		public Tile[,] worldGrid;
 		public World(int x, int y)
 		{
@@ -1017,7 +1018,7 @@ namespace SoulLand
 					}
 				}
 			}
-			
+
 			foreach (Mob mob in mobs) {
 				worldGrid[mob.posx, mob.posy].mob = mob;
 			}
@@ -1027,7 +1028,7 @@ namespace SoulLand
 		public String Level7() {
 			triggerNo = 0;
 			worldGrid = new Tile[14, 23];
-		
+
 			for (int c = 0; c < worldGrid.GetLength (0); c++) {
 				for (int r = 0; r < worldGrid.GetLength (1); r++) {
 					worldGrid [c, r] = new Tile ();
@@ -1139,6 +1140,8 @@ namespace SoulLand
 							worldGrid [c, r].floor = true;
 						} else if ((c >= 1 && c <= 2) || (c >= 4 && c <= 11)) {
 							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
 						}
 					}
 					if (r == 20 && (c >= 0 && c <= 12)) {
@@ -1164,7 +1167,7 @@ namespace SoulLand
 					if (r == 22 && (c >= 1 && c <= 12)) {
 						worldGrid [c, r].wall = true;
 					}
-					
+
 				}
 			}
 			foreach (Mob mob in mobs) {
@@ -1173,6 +1176,7 @@ namespace SoulLand
 
 			return "8,11";
 		}
+		/*
 		public String Level8() {
 			triggerNo = 0;
 			worldGrid = new Tile[14, 12];
@@ -1184,7 +1188,7 @@ namespace SoulLand
 			}
 			for (int c = 0; c < worldGrid.GetLength (0); c++) {
 				for (int r = 0; r < worldGrid.GetLength (1); r++) {
-					if (r == 0 && (c >= 3 && C <= 5))  {
+					if (r == 0 && (c >= 3 && c <= 5))  {
 						worldGrid [c, r].wall = true;
 					}
 					if (r == 1 && (c >= 3 && c <= 5)) {
@@ -1259,26 +1263,26 @@ namespace SoulLand
 					}
 					if (r == 9 && (c >= 2 && c <= 13)) {
 						if (c == 2 || c == 6 || c == 8 || c == 13) {
-							worldGrid [c, r].wall == true;
+							worldGrid [c, r].wall = true;
 						} else if (c == 9) {
-							worldGrid [c, r].end == true;
+							worldGrid [c, r].end = true;
 						} else {
-							worldGrid [c, r].floor == true;
+							worldGrid [c, r].floor = true;
 						}
 					}
 					if (r == 10 && (c >= 2 && c <= 13)) {
 						if (c == 2 || c == 8 || c == 13) {
-							worldGrid [c, r].wall == true;
+							worldGrid [c, r].wall = true;
 						} else if (c == 5) {
-							worldGrid [c, r].floor == true;
+							worldGrid [c, r].floor = true;
 						} else {
-							worldGrid [c, r].floor == true;
+							worldGrid [c, r].floor = true;
 						}
 					}
 					if (r == 11 && (c >= 2 && c <= 13)) {
-						worldGrid [c, r].wall == true;
+						worldGrid [c, r].wall = true;
 					}
-					
+
 				}
 			}
 			foreach (Mob mob in mobs) {
@@ -1287,6 +1291,7 @@ namespace SoulLand
 
 			return "7,9";
 		}
+		*/
 		public String Level9() {
 			triggerNo = 0;
 			worldGrid = new Tile[13, 16];
@@ -1298,7 +1303,7 @@ namespace SoulLand
 			}
 			for (int c = 0; c < worldGrid.GetLength (0); c++) {
 				for (int r = 0; r < worldGrid.GetLength (1); r++) {
-					
+
 					if (r == 0 && (c >= 2 && c <= 11)) {
 						worldGrid [c, r].wall = true;
 					}
@@ -1318,7 +1323,7 @@ namespace SoulLand
 							worldGrid [c, r].wall = true;
 						}
 					}
-					if (r = 3 && (c >= 2 && c <= 12)) {
+					if (r == 3 && (c >= 2 && c <= 12)) {
 						if (c == 2 || c == 4 || c == 12) {
 							worldGrid [c, r].wall = true;
 						} else if (c == 3) {
@@ -1332,8 +1337,9 @@ namespace SoulLand
 				}
 			}
 			return "2,2";
-							
-							
 
-	}				
+
+
+		}				
+	}
 }

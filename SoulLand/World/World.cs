@@ -35,6 +35,8 @@ namespace SoulLand
 				return Level6 ();
 			case 7:
 				return Level7 ();
+			case 8:
+				return Level8 ();
 			default:
 				return Level1 ();
 			}
@@ -1182,7 +1184,6 @@ namespace SoulLand
 			}
 			for (int c = 0; c < worldGrid.GetLength (0); c++) {
 				for (int r = 0; r < worldGrid.GetLength (1); r++) {
-					
 					if (r == 0 && (c >= 3 && C <= 5))  {
 						worldGrid [c, r].wall = true;
 					}
@@ -1286,7 +1287,7 @@ namespace SoulLand
 
 			return "7,9";
 		}
-			public String Level9() {
+		public String Level9() {
 			triggerNo = 0;
 			worldGrid = new Tile[13, 16];
 
@@ -1328,6 +1329,9 @@ namespace SoulLand
 							worldGrid [c, r].floor = true;
 						}
 					}
+				}
+			}
+			return "2,2";
 							
 							
 

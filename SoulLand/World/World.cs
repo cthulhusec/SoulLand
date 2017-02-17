@@ -1257,7 +1257,77 @@ namespace SoulLand
 						}
 					}
 					if (r == 9 && (c >= 2 && c <= 13)) {
-						if 
+						if (c == 2 || c == 6 || c == 8 || c == 13) {
+							worldGrid [c, r].wall == true;
+						} else if (c == 9) {
+							worldGrid [c, r].end == true;
+						} else {
+							worldGrid [c, r].floor == true;
+						}
+					}
+					if (r == 10 && (c >= 2 && c <= 13)) {
+						if (c == 2 || c == 8 || c == 13) {
+							worldGrid [c, r].wall == true;
+						} else if (c == 5) {
+							worldGrid [c, r].floor == true;
+						} else {
+							worldGrid [c, r].floor == true;
+						}
+					}
+					if (r == 11 && (c >= 2 && c <= 13)) {
+						worldGrid [c, r].wall == true;
+					}
+					
+				}
+			}
+			foreach (Mob mob in mobs) {
+				worldGrid[mob.posx, mob.posy].mob = mob;
+			}
+
+			return "7,9";
+		}
+			public String Level9() {
+			triggerNo = 0;
+			worldGrid = new Tile[13, 16];
+
+			for (int c = 0; c < worldGrid.GetLength (0); c++) {
+				for (int r = 0; r < worldGrid.GetLength (1); r++) {
+					worldGrid [c, r] = new Tile ();
+				}
+			}
+			for (int c = 0; c < worldGrid.GetLength (0); c++) {
+				for (int r = 0; r < worldGrid.GetLength (1); r++) {
+					
+					if (r == 0 && (c >= 2 && c <= 11)) {
+						worldGrid [c, r].wall = true;
+					}
+					if (r == 1 && (c >= 2 && c <= 12)) {
+						if (c == 2 || c == 4 || c == 11 || c == 12) {
+							worldGrid [c, r].wall = true;
+						} else if (c == 10) {
+							worldGrid [c, r].end = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 2 && (c >= 2 && c <= 12)) {
+						if (c == 3 || c == 5 || c == 11) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if (r = 3 && (c >= 2 && c <= 12)) {
+						if (c == 2 || c == 4 || c == 12) {
+							worldGrid [c, r].wall = true;
+						} else if (c == 3) {
+							worldGrid [c, r].door = true;
+							worldGrid [c, r].SetKeypass ("Lock1");
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
 							
 							
 

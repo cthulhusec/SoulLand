@@ -1082,7 +1082,86 @@ namespace SoulLand
 							worldGrid [c, r].wall = true;
 						}
 					}
-					if (r == 10 && (c >=
+					if ((r >= 10 && r <= 12) && (c >= 0 && c <= 12)) {
+						if ((c >= 1 && c <= 4) || (c >= 6 && c <= 9) || c == 11) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if (r == 13 && (c >= 0 && c <= 12)) {
+						if (c == 1 || c == 2 || c == 6 || c == 9 || c == 11) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if (r == 14 && (c >= 0 && c <= 12)) {
+						if (c == 2 || (c >= 4 && c <= 6) || c == 8 || c == 9 || c == 11) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if (r == 15 && (c >= 0 && c <= 12)) {
+						if ((c >= 1 && c <= 2) || (c >= 4 && c <= 6) || (c >= 8 && c <= 9) || c == 11) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if (r == 16 && (c >= 0 && c <= 12)) {
+						if ((c >= 1 && c <= 6) || (c >= 8 && c <= 9) || c == 11) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if (r == 17 && (c >= 0 && c <= 12)) {
+						if (c == 2 || c == 6 || (c >= 8 && c <= 11)) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if (r == 18 && (c >= 0 && c <= 12)) {
+						if ((c >= 1 && c <= 2) || (c >= 4 && c <= 6) || (c >= 8 && c <= 11)) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if (r == 19 && (c >= 0 && c <= 12)) {
+						if (c == 4) {
+							worldGrid [c, r].item = new Key ("Key 1", "Lock1");
+							worldGrid [c, r].floor = true;
+						} else if ((c >= 1 && c <= 2) || (c >= 4 && c <= 11)) {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 20 && (c >= 0 && c <= 12)) {
+						if (c == 1 || c == 2) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if (r == 21 && (c >= 0 && c <= 12)) {
+						if (c == 4) {
+							worldGrid [c, r].door = true;
+							worldGrid [c, r].SetKeypass ("Lock2");
+							worldGrid [c, r].floor = true;
+						} else if (c == 11) {
+							worldGrid [c, r].end = true;
+						} else if (c >= 2 && c <= 11) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if (r == 22 && (c >= 1 && c <= 12)) {
+						worldGrid [c, r].wall = true;
+					}
 					
 				}
 			}

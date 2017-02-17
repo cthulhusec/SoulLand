@@ -1075,6 +1075,14 @@ namespace SoulLand
 							worldGrid [c, r].floor = true;
 						}
 					}
+					if (r == 9 && (c >= 0&& c <= 13)) {
+						if (c == 4 || c == 8 || c == 11) {
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if (r == 10 && (c >=
 					
 				}
 			}

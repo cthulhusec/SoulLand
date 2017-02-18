@@ -1473,7 +1473,20 @@ namespace SoulLand
 							worldGrid [c, r].floor = true;
 						}
 					}
-					if (
+					if (r == 11 && (c >= 0 && c <= 12)) {
+						if (c == 0 || c == 2 || (c >= 6 && c <= 8) || (c >= 10 && c <= 12)) {
+							worldGrid [c, r].wall = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 12 && (c >= 0 && c <= 12)) {
+						if (c == 0 || c == 2 || c == 3 || (c >= 6 && c <= 8) || c == 12) {
+							worldGrid [c, r].wall = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
 							
 					
 							

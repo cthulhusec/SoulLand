@@ -1487,7 +1487,24 @@ namespace SoulLand
 							worldGrid [c, r].floor = true;
 						}
 					}
-							
+					if (r == 13 && (c >= 0 && c <= 12)) {
+						if (c == 0 || (c >= 3 && c <= 8) || c == 12) {
+							worldGrid [c, r].wall = true;
+						} else if {
+							worldGrid [c, r].item = new Key ("Key 2", "Lock2");
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if (r == 14 && (c >= 0 && c <= 12)) {
+						if (c >= 0 && c <= 8) {
+							worldGrid [c, r].wall = true;
+						} else {
+							worldGrid [c, r].floor = true;
+						}
+					}
+					if 
 					
 							
 						

@@ -1521,7 +1521,20 @@ namespace SoulLand
 							worldGrid [c, r].floor = true;
 						}
 					}
-					
+					if (r == 17 && (c >= 6 && c <= 12)) {
+						if (c == 11) {
+							worldGrid [c, r].door = true;
+							worldGrid [c, r].SetKeypass ("Lock3");
+							worldGrid [c, r].floor = true;
+						} else {
+							worldGrid [c, r].wall = true;
+						}
+					}
+					if (r == 18 && (c >= 8 && c <= 12)) {
+						if (c == 8 || c == 12) {
+							worldGrid [c, r].wall = true;
+						} else {
+							worldGrid [c, r].floor = true;
 							
 						
 				}

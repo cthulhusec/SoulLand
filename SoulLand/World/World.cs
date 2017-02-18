@@ -242,14 +242,18 @@ namespace SoulLand
  							worldGrid [c, r].renderable = 3;
  						}
  					}
- 					if ((r >= 13 && r <= 21) && (c >= 9 && c <= 21)) {
+ 					if ((r >= 13 && r <= 21) && (c >= 10 && c <= 21)) {
  						if (r == 13  && ((c >= 10 && c <= 13) || (c >= 17 && c <= 20))) {
 						        worldGrid [c, r].renderable = 4;
 						} else if (r == 14 && ((c >= 10 && c <= 14) || (c >= 16 && c <= 20))) {
 						        worldGrid [c, r].renderable = 4;
-						} else if (((r >= 15 && r <= 16) || (r >= 18 && r <= 21)) && (c >= 10 && c <= 20)){
+						} else if (r >= 15 && r <= 21){
 						        worldGrid [c, r].renderable = 4;
-						} else if (r ==
+						}
+					}
+					if ((r >= 15 && r <= 19) && (c >= 6 && c <= 9)) {
+						worldGrid [c, r].renderable = 5;
+					}
 						
 
 				}

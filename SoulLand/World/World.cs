@@ -194,8 +194,8 @@ namespace SoulLand
 					}
 					if (r == 17 && (c >= 6 && c <= 20)) {
 						if (c == 10) {
-							//							worldGrid [c, r].door = true;
-							//							worldGrid [c, r].SetKeypass ("Lock3");
+							worldGrid [c, r].door = true;
+							worldGrid [c, r].SetKeypass ("Lock3");
 							worldGrid [c, r].floor = true;
 						} else if (c == 6 || c == 20) {
 							worldGrid [c, r].wall = true;
@@ -208,7 +208,7 @@ namespace SoulLand
 					if (r == 21 && (c >= 10 && c <= 20)) {
 						worldGrid [c, r].wall = true;
 					}
-					//Renderable Areas
+//Renderable Areas
  					if ((r >= 0 && r <= 7) && (c >= 0 && c <= 4)) {
  						if ((r >= 0 && r <= 1) || (r >= 3 && r <= 4)) {
  							worldGrid [c, r].renderable = 1;
@@ -254,8 +254,6 @@ namespace SoulLand
 					if ((r >= 15 && r <= 19) && (c >= 6 && c <= 9)) {
 						worldGrid [c, r].renderable = 5;
 					}
-						
-
 				}
 			}
 			foreach (Mob mob in mobs) {
@@ -418,44 +416,60 @@ namespace SoulLand
 					if (r == 22 && c <= 18) {
 						worldGrid [c, r].wall = true;
 					}
-					//Renderable Areas
-					if ((r >= 0 && r <= 7) && (c >= 0 && c <= 4)) {
-						if ((r >= 0 && r <= 1) || (r >= 3 && r <= 4)) {
+//Renderable Areas
+					if ((r >= 9 && r <= 14) && (c >= 0 && c <= 10)) {
+						if (r == 9 && (c >= 6 && c <= 9)) {
 							worldGrid [c, r].renderable = 1;
-						} else if (r == 2 && (c >= 0 && c <= 3)) {
+						} else if (r == 10 && (c == 2 || (c >= 4 && c <= 10))) {
 							worldGrid [c, r].renderable = 1;
-						} else if ((r >= 5 && r <= 6) && (c >= 1 && c <= 3)) {
+						} else if (r == 11 || r == 12) {
 							worldGrid [c, r].renderable = 1;
-						} else if (r == 7 && c == 2) {
+						} else if ((r >= 13 && r <= 14) && (c >= 0 && c <= 9)) {
 							worldGrid [c, r].renderable = 1;
 						}
 					}
-					if ((r >= 6 && r <= 11) && (c >= 0 && c <= 7)) {
-						if (r == 6 && (c == 0 || (c >= 4 && c <= 6))) {
-							worldGrid [c, r].renderable = 2;
-						} else if (r == 7 && ((c >= 0 && c <= 1) || (c >= 3 && c <= 6))) {
-							worldGrid [c, r].renderable = 2;
-						} else if ((r == 8 || (r >= 10 && r <= 11)) && (c >=0 && c <= 6)) {
-							worldGrid [c, r].renderable = 2;
-						} else if (r == 9 && (c >= 0 && c <= 7)) {
-							worldGrid [c, r].renderable = 2;
-						}
+					if ((r >= 15 && r <= 17) && (c >= 3 && c <= 5)) {
+						worldGrid [c, r].renderable = 2;
 					}
-					if ((r >= 6 && r <= 14) && (c >= 7 && c <= 16)) {
-						if ((r >= 6 && r <= 8) || (r >= 10 && r <= 12)) {
+					if ((r >= 17 && r <= 22) & (c >= 0 && c <= 5) {
+						if (r == 17 && (c >= 0 && c <= 2)) {
 							worldGrid [c, r].renderable = 3;
-						} else if (r == 9 && (c >= 8 && c <= 16)) {
-							worldGrid [c, r].renderable = 3;
-						} else if (r == 13 && (c >= 14 && c <= 16)) {
-							worldGrid [c, r].renderable = 3;
-						} else if (r == 14 && c == 15) {
+						} else {
 							worldGrid [c, r].renderable = 3;
 						}
 					}
-					if ((r >= 13 && r <= 21) && (c >= 9 && c <= 21)) {
-						if ((r == 13 
+					if ((r >= 8 && r <= 14) && (c >= 10 && c <= 18)) {
+						if (r == 8 || r == 9 || r == 13 || r == 14) {
+							worldGrid [c, r].renderable = 4;
+						} else if ((r >= 10 && r <= 12) && (c >= 11 && c <= 18)) {
+							worldGrid [c, r].renderable = 4;
+						}
 					}
-
+					if ((r >= 15 && r <= 19) && (c >= 13 && c <= 16)) {
+						if (r == 15 || r == 16) {
+							worldGrid [c, r].renderable = 5;
+						} else if (r >= 17 && r <= 19) {
+							worldGrid [c, r].renderable = 5;
+						}
+					}
+					if ((r >= 15 && r <= 22) && (c >= 6 && c <= 14)) {
+						if ((r == 15 || r == 16 || r == 21 || r == 22) && (c >= 6 && c <= 13)) {
+							worldGrid [c, r].renderable = 6;
+						} else if ((r >= 17 && r <= 19) && (c >= 6 && c <= 12)) {
+							worldGrid [c, r].renderable = 6;
+						} else if (r == 20) {
+							worldGrid [c, r].renderable = 6;
+						}
+					}
+					if ((r >= 19 && r <= 22) && (c >= 14 && c <= 18)) {
+						if (r == 19 && (c == 17 || c == 18)) {
+							worldGrid [c, r].renderable = 7;
+						} else if (r == 20 && (c >= 15 && c <= 18)) {
+							worldGrid [c, r].renderable = 7;
+						} else if (r == 21 || r == 22) {
+							worldGrid [c, r].renderable = 5;
+						}
+					}
 				}
 			}
 			foreach (Mob mob in mobs) {

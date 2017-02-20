@@ -617,6 +617,11 @@ namespace SoulLand
                         {
                             worldGrid[c, r].trigger = true;
                         }
+			else if (c == 9)
+			{
+				boss = new Boss(c, r, "Lock3");
+                                worldGrid[c, r].floor = true;
+			}
                         else if ((c >= 1 && c <= 4) || (c >= 7 && c <= 15))
                         {
                             worldGrid[c, r].floor = true;
@@ -778,6 +783,7 @@ namespace SoulLand
 			foreach (Mob mob in mobs) {
 				worldGrid[mob.posx, mob.posy].mob = mob;
 			}
+			worldGrid[boss.posx, boss.posy].boss = boss;
 			return "3,1";
 		}
 		public String Level3() {
@@ -882,6 +888,7 @@ namespace SoulLand
 			foreach (Mob mob in mobs) {
 				worldGrid[mob.posx, mob.posy].mob = mob;
 			}
+		        worldGrid[boss.posx, boss.posy].boss = boss;
 			return "1,4";
 		}
 		public String Level4() {
@@ -1067,7 +1074,7 @@ namespace SoulLand
 			foreach (Mob mob in mobs) {
 				worldGrid[mob.posx, mob.posy].mob = mob;
 			}
-
+                        worldGrid[boss.posx, boss.posy].boss = boss;
 			return "4,1";
 		}
 		public String Level5() {
@@ -1245,7 +1252,7 @@ namespace SoulLand
 			foreach (Mob mob in mobs) {
 				worldGrid[mob.posx, mob.posy].mob = mob;
 			}
-
+                        worldGrid[boss.posx, boss.posy].boss = boss;
 			return "2,19";
 		}
 		public String Level6() {
@@ -1438,7 +1445,7 @@ namespace SoulLand
 			foreach (Mob mob in mobs) {
 				worldGrid[mob.posx, mob.posy].mob = mob;
 			}
-
+                        worldGrid[boss.posx, boss.posy].boss = boss;
 			return "18,2";
 		}
 		public String Level7() {
@@ -1589,125 +1596,9 @@ namespace SoulLand
 			foreach (Mob mob in mobs) {
 				worldGrid[mob.posx, mob.posy].mob = mob;
 			}
-
+                        worldGrid[boss.posx, boss.posy].boss = boss;
 			return "8,11";
-		}
-		/*
-		public String Level8() {
-			triggerNo = 0;
-			worldGrid = new Tile[14, 12];
-
-			for (int c = 0; c < worldGrid.GetLength (0); c++) {
-				for (int r = 0; r < worldGrid.GetLength (1); r++) {
-					worldGrid [c, r] = new Tile ();
-				}
-			}
-			for (int c = 0; c < worldGrid.GetLength (0); c++) {
-				for (int r = 0; r < worldGrid.GetLength (1); r++) {
-					if (r == 0 && (c >= 3 && c <= 5))  {
-						worldGrid [c, r].wall = true;
-					}
-					if (r == 1 && (c >= 3 && c <= 5)) {
-						if (c == 3 || c == 5) {
-							worldGrid [c, r].wall = true;
-						} else if (c == 4) {
-							worldGrid [c, r].wall = true;
-						}
-					}
-					if (r == 2 && (c >= 2 && c <= 13)) {
-						if (c == 4) {
-							worldGrid [c, r].door = true;
-							worldGrid [c, r].SetKeypass ("Lock2");
-							worldGrid [c, r].floor = true;
-						} else {
-							worldGrid [c, r].wall = true;
-						}
-					}
-					if (r == 3 && (c >= 2 && c <= 13)) {
-						if (c == 2 || c == 6 || c == 13) {
-							worldGrid [c, r].wall = true;
-						} else {
-							worldGrid [c, r].floor = true;
-						}
-					}
-					if (r == 4 && (c >= 2 && c <= 13)) {
-						if (c == 2 || c == 6 || (c >= 8 && c <= 11) || c == 13) {
-							worldGrid [c, r].wall = true;
-						} else {
-							worldGrid [c, r].floor = true;
-						}
-					}
-					if (r == 5 && (c >= 0 && c <= 13)) {
-						if ((c >= 0 && c <= 2) || c == 6 || c == 8 || c == 11 || c == 13) {
-							worldGrid [c, r].wall = true;
-						} else if (c == 9) {
-							worldGrid [c, r].item = new Key ("Key 1", "Lock1");
-							worldGrid [c, r].floor = true;
-						} else {
-							worldGrid [c, r].floor = true;
-						}
-					}
-					if (r == 6 && (c >= 0 && c <= 13)){
-						if (c == 0 || c == 2 || c == 6 || c == 8 || c == 11 || c == 13) {
-							worldGrid [c, r].wall = true;
-						} else if (c == 1) {
-							worldGrid [c, r].item = new Key ("Key 2", "Lock2");
-							worldGrid [c, r].floor = true;
-						} else {
-							worldGrid [c, r].floor = true;
-						}
-					}
-					if (r == 7 && (c >= 0 && c <= 13)) {
-						if (c == 0 || c == 6 || c == 11 || c == 13) {
-							worldGrid [c, r].wall = true;
-						} else if (c == 1 || c == 5 || c == 9) {
-							worldGrid [c, r].floor = true;
-						} else {
-							worldGrid [c, r].floor = true;
-						}
-					}
-					if (r == 8 && (c >= 0 && c <= 13)) {
-						if ((c >= 0 && c <= 4) || c == 6 || (c >= 8 && c <= 11) || c == 13) {
-							worldGrid [c, r].wall = true;
-						} else if (c == 5) {
-							worldGrid [c, r].door = true;
-							worldGrid [c, r].SetKeypass ("Lock1");
-							worldGrid [c, r].floor = true;
-						} else {
-							worldGrid [c, r].floor = true;
-						}
-					}
-					if (r == 9 && (c >= 2 && c <= 13)) {
-						if (c == 2 || c == 6 || c == 8 || c == 13) {
-							worldGrid [c, r].wall = true;
-						} else if (c == 9) {
-							worldGrid [c, r].end = true;
-						} else {
-							worldGrid [c, r].floor = true;
-						}
-					}
-					if (r == 10 && (c >= 2 && c <= 13)) {
-						if (c == 2 || c == 8 || c == 13) {
-							worldGrid [c, r].wall = true;
-						} else if (c == 5) {
-							worldGrid [c, r].floor = true;
-						} else {
-							worldGrid [c, r].floor = true;
-						}
-					}
-					if (r == 11 && (c >= 2 && c <= 13)) {
-						worldGrid [c, r].wall = true;
-					}
-
-				}
-			}
-			foreach (Mob mob in mobs) {
-				worldGrid[mob.posx, mob.posy].mob = mob;
-			}
-
-			return "7,9";
-		}
-		*/
+		}					
 		public String Level8() {
 			triggerNo = 0;
 			worldGrid = new Tile[13, 21];
@@ -1889,6 +1780,10 @@ namespace SoulLand
 					}
 				}
 			}
+			foreach (Mob mob in mobs) {
+				worldGrid[mob.posx, mob.posy].mob = mob;
+			}
+			worldGrid[boss.posx, boss.posy].boss = boss;
 			return "3,1";
 
 

@@ -6,8 +6,9 @@ namespace SoulLand
 	public class Key : Item
 	{
 		public string keyPass = "null";
+        public bool selectable = false;
 
-		public Key (String n, String pass) : base(n)
+        public Key (String n, String pass) : base(n)
 		{
 			keyPass = pass;
 		}

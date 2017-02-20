@@ -6,8 +6,9 @@ namespace SoulLand
 	public class Inventory
 	{
 		int slots = 10;
-		public List<Item> items;
-		public Charm equiped;
+        public List<Item> items;
+        public List<Item> keyItems;
+        public Charm equiped;
 		public Inventory()
 		{
 			items = new List<Item>();
@@ -64,7 +65,14 @@ namespace SoulLand
 
 		public bool UseKey(String keypass)
 		{
-			foreach (Key k in items) {
+            keyItems = new List<Item>();
+            foreach (Item i in items) {
+                if (i.GetType() == typeof(Key))
+                {
+                    keyItems.Add(i);
+                }
+            }
+			foreach (Key k in keyItems) {
 				if (k.keyPass == keypass) {
 					items.Remove ((Item)k);
 					return true;

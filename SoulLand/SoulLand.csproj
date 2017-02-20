@@ -64,6 +64,7 @@
     <Compile Include="World\Items\Charm.cs" />
     <Compile Include="World\Tiles\Tile.cs" />
     <Compile Include="World\Mobs\Mob.cs" />
+    <Compile Include="World\Mobs\Boss.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Player\" />

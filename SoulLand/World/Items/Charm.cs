@@ -5,14 +5,13 @@ namespace SoulLand
 	[Serializable]
 	public class Charm : Item
 	{
-		public int RangedDamage;
-		public int MeleeDamage;
+        public int Type;
+        public bool selectable = true;
 
 
-		public Charm (String n, int r, int m) : base(n)
+		public Charm (String n, int tempType) : base(n)
 		{
-			RangedDamage = r;
-			MeleeDamage = m;
+            Type = tempType;
 		}
 	}
 }

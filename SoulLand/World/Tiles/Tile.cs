@@ -4,6 +4,10 @@ namespace SoulLand
 	[Serializable]
 	public class Tile
 	{
+		public bool trigger = false;
+
+		public int renderable = 0;
+		
 		public bool floor = false;
 
 		public bool wall = false;
@@ -18,6 +22,7 @@ namespace SoulLand
 
 		public Mob mob;
 
+		public Boss boss;
 
 		public Tile()
 		{

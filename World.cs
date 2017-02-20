@@ -1804,35 +1804,29 @@ namespace SoulLand
 						}
 					}
 					if (r == 12 && (c >= 0 && c <= 12)) {
-						if (c == 0 || c == 2 || c == 3 || (c >= 6 && c <= 8) || c == 12) {
+						if (c == 0 || c == 2 || c == 3 || c >= 6 || c == 12) {
 							worldGrid [c, r].wall = true;
 						} else {
 							worldGrid [c, r].floor = true;
 						}
 					}
 					if (r == 13 && (c >= 0 && c <= 12)) {
-						if (c == 0 || (c >= 3 && c <= 8) || c == 12) {
+						if (c == 0 || (c >= 3 && c <= 6) || c == 12) {
 							worldGrid [c, r].wall = true;
-						} else if (c == 2) {
-							worldGrid [c, r].item = new Key ("Key 2", "Lock2");
-							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].floor = true;
 						}
 					}
 					if (r == 14 && ((c >= 0 && c <= 3) || (c >= 6 && c <= 12))) {
-						if ((c >= 0 && c <= 3) || (c >= 6 && c <= 8) || c== 12) {
+						if ((c >= 0 && c <= 3) || c >= 6 || c== 12) {
 							worldGrid [c, r].wall = true;
 						} else {
 							worldGrid [c, r].floor = true;
 						}
 					}
 					if (r == 15 && (c >= 6 && c <= 12)) {
-						if (c == 6 || c == 8 || c == 12) {
+						if (c == 6 || c == 12) {
 							worldGrid [c, r].wall = true;
-						} else if (c == 7) {
-							worldGrid [c, r].item = new Key ("Key 3", "Lock3");
-							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].floor = true;
 						}
@@ -1845,32 +1839,26 @@ namespace SoulLand
 						}
 					}
 					if (r == 17 && (c >= 6 && c <= 12)) {
-						if (c == 11) {
-							worldGrid [c, r].door = true;
-							worldGrid [c, r].SetKeypass ("Lock3");
-							worldGrid [c, r].floor = true;
-						} else {
+						if (c == 6 || c == 12) {
 							worldGrid [c, r].wall = true;
-						}
+						} else {
+							worldGrid [c, r].floor = true;
 					}
-					if (r == 18 && (c >= 8 && c <= 12)) {
-						if (c == 8 || c == 12) {
+					if (r == 18 && (c >= 6 && c <= 12)) {
+						if (c == 6 || c == 12) {
 							worldGrid [c, r].wall = true;
 						} else {
 							worldGrid [c, r].floor = true;
 						}
 					}
-					if (r == 19 && (c >= 8 && c <= 12)) {
-						if (c == 8 || c == 12) {
+					if (r == 19 && (c >= 6 && c <= 12)) {
+						if (c == 6 || c == 12) {
 							worldGrid [c, r].wall = true;
-						} else if (c == 9) {
-							worldGrid [c, r].item = new Key ("Key 4", "Lock4");
-							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].floor = true;
 						}
 					}
-					if (r == 20 && (c >= 8 && c <= 12)) {
+					if (r == 20 && (c >= 6 && c <= 12)) {
 						worldGrid [c, r].wall = true;
 					}
 				}

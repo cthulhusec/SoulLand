@@ -876,7 +876,7 @@ namespace SoulLand
 							worldGrid [c, r].renderable = 1;
 						}
 					}
-					if ((r >= 5 && r <= 10) && (c >= 5
+					if ((r >= 5 && r <= 10) && (c >= 5 && c <= 10)) {
 				}
 			}
 			foreach (Mob mob in mobs) {

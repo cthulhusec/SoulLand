@@ -1352,7 +1352,7 @@ namespace SoulLand
 					}
 					if (r == 14 && (c >= 0 && c <= 21)) {
 						if (c == 15) {
-							worldGrid [c, r].item = new Key ("Key 4", "Lock4");
+							worldGrid [c, r].item = new Key ("Key 3", "Lock3");
 							worldGrid [c, r].floor = true;
 						} else if (c >= 1 && c <= 7) {
 							worldGrid [c, r].floor = true;
@@ -1376,7 +1376,7 @@ namespace SoulLand
 						if (c == 2) {
 							worldGrid [c, r].trigger = true;
 						} else if (c == 9) {
-							worldGrid [c, r].item = new Key ("Key 3", "Lock3");
+							worldGrid [c, r].item = new Key ("Key 4", "Lock4");
 							worldGrid [c, r].floor = true;
 						} else if ((c >= 1 && c <= 7) || (c >= 9 && c <= 11) || c == 13 || c == 17 || (c >= 19 && c <= 20)) {
 							worldGrid [c, r].floor = true;
@@ -1454,7 +1454,61 @@ namespace SoulLand
 						}
 					}
 					if ((r >= 3 && r <= 11) && (c >= 7 && c <= 17)) {
-// STEVEN YOU ARE RIGHT HERE!!!!
+						if (r == 3 && ((c == 8 || (c >= 12 && c <= 17))) {
+							worldGrid [c, r].renderable = 4;
+						} else if ((r == 4 || r == 5) && (c >= 8 && c <= 17)) {
+							worldGrid [c, r].renderable = 4;
+						} else if ((r == 6 || r== 7) && (c >= 7 && c <= 17) {
+							worldGrid [c, r].renderable = 4;
+						} else if ((r >= 8 && r <= 10) && (c >= 9 && c <= 17)) {
+							worldGrid [c, r].renderable = 4;
+						} else if (r == 11 && (c >= 13 && c <= 17)) {
+							worldGrid [c, r].renderable = 4;
+						} 
+					}
+					if ((r >= 18 && r <= 20) && (c >= 4 && c <= 8)) {
+						if (r == 18 && (c == 7 || c == 8)) {
+							worldGrid [c, r].renderable = 5;
+						} else if (r == 19 || r == 20) {
+							worldGrid [c, r].renderable = 5;
+						}
+					}
+					if ((r >= 17 && r <= 20) && (c >= 9 && c <= 12)) {
+						worldGrid [c, r].renderable = 6;
+					}
+					if ((r >= 14 && r <= 20) && (c >= 9 && c <= 14)) {
+						if (r >= 14 && r <= 16) {
+							worldGrid [c, r].renderable = 7;
+						} else if ((r >= 17 && r <= 20) && (c == 13 || c== 14)) {
+							worldGrid [c, r].renderable = 7;
+					}
+					if ((r >= 14 && r <= 20) && (c >= 15 && c <= 21)) {
+						if ((r == 14 || r == 15) && (c >= 16 && c <= 21)) {
+							worldGrid [c, r].renderable = 8;
+						} else if ((r >= 16 && r <= 20) && (c >= 15 && c <= 21)) {
+							worldGrid [c, r].renderable = 8;
+						}
+					}
+					if ((r >= 13 && r <= 15) && (c >= 14 && c <= 16)) {
+						if (r == 13) {
+							worldGrid [c, r].renderable = 9;
+						} else if ((r == 14 || r == 15) && (c == 15 || c == 16)) {
+							worldGrid [c, r].renderable = 9;
+						}
+					} 
+					if ((r == 12 || r == 13) && (c >= 13 && c <= 18)) {
+						if (r == 12) {
+							worldGrid [c, r].renderable = 10;
+						} else if (r == 13 && (c == 13 || c == 17)) {
+							worldGrid [c, r].renderable = 10;
+						}
+					}
+					if ((r >= 7 && r <= 13) && (c >= 18 && c <= 21)) {
+						if ((r >= 7 && r <= 11) || r == 14 || r== 15) {
+							worldGrid [c, r].renderable = 11;
+						} else if (r == 12 && (c >= 19 && c <= 21)) {
+							worldGrid [c, r].renderable = 11;
+						}
 					}
 				}
 			}

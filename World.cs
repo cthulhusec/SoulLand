@@ -421,11 +421,11 @@ namespace SoulLand
 				worldGrid[c, r].renderable = 5;
 			    }
                 	}
-		}
-		foreach (Mob mob in mobs) {
+		    }
+		    foreach (Mob mob in mobs) {
                 	worldGrid[mob.posx, mob.posy].mob = mob;
-		}
-           	 worldGrid[boss.posx, boss.posy].boss = boss;
+		    }
+           	    worldGrid[boss.posx, boss.posy].boss = boss;
 			return "7,2";
 		}
 		public String Level2() {
@@ -656,6 +656,11 @@ namespace SoulLand
 				else if (c == 14)
 				{
 				    worldGrid[c, r].trigger = true;
+				}
+				else if (c == 17) 
+				{
+		                    worldGrid[c, r].item = new Charm("Double Attack Charm", 1);
+				    worldGrid[c, r].floor = true;
 				}
 				else if ((c >= 1 && c <= 4) || (c >= 7 && c <= 17))
 				{

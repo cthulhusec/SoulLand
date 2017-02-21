@@ -1153,7 +1153,41 @@ namespace SoulLand
 							worldGrid [c, r].renderable = 5;
 						}
 					}
-
+					if ((r >= 12 && r <= 19) && (c >= 11 && c <= 16)) {
+						if ((r == 12 || r == 13) && (c == 13 || c == 14)) {
+							worldGrid [c, r].renderable = 6;
+						} else if (r == 14 && (c >= 11 && c <= 14)) {
+							worldGrid [c, r].renderable = 6;
+						} else if (r >= 15 && r <= 17) {
+							worldGrid [c, r].renderable = 6;
+						} else if ((r == 18 || r == 19) && (c == 12 || c == 13)) {
+							worldGrid [c, r].renderable = 6;
+						}
+					}
+					if ((r >= 7 && r <= 14) && (c == 15 || c == 16)) {
+						worldGrid [c, r].renderable = 7;
+					}
+					if ((r >= 5 && r <= 19) && (c >= 14 && c <= 18)) {
+						if ((r >= 5 && r <= 17) && (c == 17 || c == 18)) {
+							worldGrid [c, r].renderable = 8;
+						} else if (r == 18 || r == 19) {
+							worldGrid [c, r].renderable = 8;
+						}
+					}
+					if ((r >= 4 && r <= 6) && (c >= 6 && c <= 16)) {
+						if (r == 4 && c == 7) {
+							worldGrid [c, r].renderable = 9;
+						} else if (r == 5 || r == 60 {
+							worldGrid [c, r].renderable = 9;
+						}
+					}
+					if ((r >= 1 && r <= 4) && (c >= 6 && c <= 9)) {
+						if (r >= 1 && r <= 3) {
+							worldGrid [c, r].renderable = 10;
+						} else if (r == 4  && (c == 6 || c == 8 || c == 9)) {
+							worldGrid [c, r].renderable = 10;
+						}
+					}  	
 				}
 			}
 

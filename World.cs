@@ -1454,7 +1454,7 @@ namespace SoulLand
 						}
 					}
 					if ((r >= 3 && r <= 11) && (c >= 7 && c <= 17)) {
-						
+// STEVEN YOU ARE RIGHT HERE!!!!
 					}
 				}
 			}

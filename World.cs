@@ -1137,6 +1137,22 @@ namespace SoulLand
 							worldGrid [c, r].renderable = 3;
 						}
 					}
+					if ((r >= 10 && r <= 17) && (c >= 0 && c <= 5)) {
+						if (r == 10 && (c >= 0 && c <= 3)) {
+							worldGrid [c, r].renderable = 4;
+						} else if (r == 11 && (c >= 0 && c <= 4)) {
+							worldGrid [c, r].renderable = 4;
+						} else if (r >= 12 && r <= 17) {
+							worldGrid [c, r].renderable = 4;
+						}
+					}
+					if ((r >= 12 && r <= 17) && (c >= 6 && c <= 12)) {
+						if (r == 12 || r == 13) {
+							worldGrid [c, r].renderable = 5;
+						} else if ((r >= 14 && r <= 17) && (c >= 6 && c <= 10)) {
+							worldGrid [c, r].renderable = 5;
+						}
+					}
 
 				}
 			}

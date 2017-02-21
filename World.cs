@@ -1666,6 +1666,7 @@ namespace SoulLand
 						}
 					}
 					if (r == 16 && (c >= 0 && c <= 19)) {
+						if (c == 
 						if ((c >= 1 && c <= 5) || (c == 8) || (c >= 13 && c <= 18)) {
 							worldGrid [c, r].floor = true;
 						} else {

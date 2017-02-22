@@ -51,7 +51,7 @@ namespace SoulLand
 						a.posy += 1;
 					}
 				}
-				if (player.mobWaitAttack == 0 && ((a.posx >= player.posx - 2 && a.posy == player.posy) && (a.posx <= player.posx + 2 && a.posy == player.posy)) || ((a.posx == player.posx && a.posy >= player.posy - 2) && (a.posx == player.posx && a.posy <= player.posy - 2))) {
+				if (player.mobWaitAttack == 0 && ((a.posx >= player.posx - 1 && a.posy == player.posy) && (a.posx <= player.posx + 1 && a.posy == player.posy)) || ((a.posx == player.posx && a.posy >= player.posy +1 ) && (a.posx == player.posx && a.posy <= player.posy - 1))) {
 					world.worldGrid [a.posx, a.posy].mob = null;
 					world.mobs.Remove (a);
 					player.health -= 1;

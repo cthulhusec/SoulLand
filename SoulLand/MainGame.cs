@@ -83,6 +83,7 @@ namespace SoulLand
 			oldKeyboardState = Keyboard.GetState();
 
             AudioFileReader reader = new AudioFileReader("Content/Assets/Sound/TechnoBackground.mp3");
+            reader.Volume = 0.25F;
             LoopStream loop = new LoopStream(reader);
             waveOut = new WaveOut();
             waveOut.Init(loop);
@@ -222,7 +223,7 @@ namespace SoulLand
             GameLog.Log("Volume Changed: " + volume.ToString());
             gameData.audioVolume = volume;
             SaveSystem.SaveGameData(gameData);
-            waveOut.Volume = volume/100;
+            waveOut.Volume = volume/10;
         }
 	}
 }

@@ -2102,6 +2102,34 @@ namespace SoulLand
 					if (r == 20 && (c >= 8 && c <= 12)) {
 						worldGrid [c, r].wall = true;
 					}
+// Renderable Areas
+					if ((r >= 4 && r <= 9) && (c >= 0 && c <= 8)) {
+						if (r == 4 && (c == 0 || c == 1 || (c >= 5 && c <= 8))) {
+							worldGrid [c, r].renderable = 1;
+						} else if (r == 5 && ((c >= 0 && c <= 2) || (c >= 4 && c <= 8))) {
+							worldGrid [c, r].renderable = 1;
+						} else if (r == 6 || r == 7) {
+							worldGrid [c, r].renderable = 1;
+						} else if (r == 8 && (c >= 4 && c <= 8)) {
+							worldGrid [c, r].renderable = 1;
+						} else if (r == 9 && (c == 4 || c == 5)) {
+							worldGrid [c, r].renderable = 1;
+						}
+					}
+					if ((r >= 0 && r <= 8) && (c >= 5 && c <= 12)) {
+						if (r >= 0 && r <= 3) {
+							worldGrid [c, r].renderable = 2;
+						} else if ((r >= 4 && r <= 8) && (c >= 9 && c <= 12)) {
+							worldGrid [c, r].renderable = 2;
+						}
+					}
+					if ((r >= 8 && r <= 13) && (c >= 2 && c <= 7)) {
+						if (r == 8 && c == 3) {
+							worldGrid [c, r].renderable = 3;
+						} else if (r == 9 && (c == 3 || (c >= 6 && c <= 8))) {
+							worldGrid [c, r].renderable = 3;
+						}
+					}	
 				}
 			}
 			foreach (Mob mob in mobs) {

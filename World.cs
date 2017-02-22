@@ -2055,7 +2055,8 @@ namespace SoulLand
 						if (c == 6 || c == 12) {
 							worldGrid [c, r].wall = true;
 						} else if (c == 9) {
-							
+							boss = new Boss(c, r, "Lock3");
+							worldGrid[c, r].floor = true;
 						} else {
 							worldGrid [c, r].floor = true;
 						}
@@ -2079,6 +2080,11 @@ namespace SoulLand
 					if (r == 18 && (c >= 8 && c <= 12)) {
 						if (c == 8 || c == 12) {
 							worldGrid [c, r].wall = true;
+						} else if (c == 9) {
+							mobs.Add(new Mob(c, r));
+							worldGrid [c, r].floor = true;
+						} else if (c == 11) {
+							worldGrid [c, r].trigger = true;
 						} else {
 							worldGrid [c, r].floor = true;
 						}

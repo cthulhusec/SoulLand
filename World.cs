@@ -2134,7 +2134,11 @@ namespace SoulLand
 						}
 					}
 					if ((r >= 0 && r <= 8) && (c >= 5 && c <= 12)) {
-						if (r >= 0 && r <= 3) {
+						if (r == 0 && (c >= 5 && c <= 7)) {
+							worldGrid [c, r].renderable = 2;
+						} else if (r == 1 && ((c >= 5 && c <= 7) || (c >= 10 && c <= 12))) {
+							worldGrid [c, r].renderable = 2;
+						} else if (r == 2 || r == 3) {
 							worldGrid [c, r].renderable = 2;
 						} else if ((r >= 4 && r <= 8) && (c >= 9 && c <= 12)) {
 							worldGrid [c, r].renderable = 2;
@@ -2145,6 +2149,54 @@ namespace SoulLand
 							worldGrid [c, r].renderable = 3;
 						} else if (r == 9 && (c == 3 || (c >= 6 && c <= 8))) {
 							worldGrid [c, r].renderable = 3;
+						} else if ((r >= 10 && r <= 13) && (c >= 2 && c <= 6)) {
+							worldGrid [c, r].renderable = 3;
+						}
+					}
+					if ((r == 8 || r == 9) && (c >= 0 && c <= 2)) {
+						if (r == 8) {
+							worldGrid [c, r].renderable = 4;
+						} else if (r == 9 && (c == 0 || c == 1)) {
+							worldGrid [c, r].renderable = 4;
+						}
+					}
+					if ((r >= 10 && r <= 14) && (c >= 0 && c <= 2)) {
+						if ((r >= 10 && r <= 13) && (c == 0 || c == 1)) {
+							worldGrid [c, r].renderable = 5;
+						} else if (r == 14) {
+							worldGrid [c, r].renderable = 5;
+						}
+					}
+					if ((r >= 9 && r <= 11) && (c >= 7 && c <= 10)) {
+						if (r == 9 && (c >= 9 && c <= 10)) {
+							worldGrid [c, r].renderable = 6;
+						} else if (r == 10 || r == 11) {
+							worldGrid [c, r].renderable = 6;
+						}
+					}
+					if ((r >= 11 && r <= 18) && (c >= 6 && c <= 12)) {
+						if (r == 11 && (c == 11 || c == 12)) {
+							worldGrid [c, r].renderable = 7;
+						} else if ((r == 12 || r == 13) && (c >= 7 && c <= 12)) {
+							worldGrid [c, r].renderable = 7;
+						} else if (r >= 14 && r <= 17) {
+							worldGrid [c, r].renderable = 7;
+						} else if (r == 18 && (c == 11 || c == 12)) {
+							worldGrid [c, r].renderable = 7;
+						}
+					}
+					if (r >= 18 && r <= 20) {
+						if (r == 18 && (c >= 8 && c <= 10)) {
+							worldGrid [c, r].renderable = 8;
+						} else if (r == 19 || r == 20) {
+							worldGrid [c, r].renderable = 8;
+						}
+					}
+					if ((r == 0 || r == 1) && (c >= 8 && c <= 10)) {
+						if (r == 0) {
+							worldGrid [c, r].renderable = 9;
+						} else if (r == 1 && (c == 8 || c == 9)) {
+							worldGrid [c, r].renderable = 9;
 						}
 					}	
 				}

@@ -1671,22 +1671,33 @@ namespace SoulLand
 						}
 					}
 					if (r == 16 && (c >= 0 && c <= 19)) {
-						if (c == 
-						if ((c >= 1 && c <= 5) || (c == 8) || (c >= 13 && c <= 18)) {
+						if (c == 5 || c == 14) {
+							mobs.Add(new Mob(c, r));
+							worldGrid [c, r].floor = true;
+						} else if ((c >= 1 && c <= 4) || (c == 8) || (c >= 13 && c <= 18)) {
 							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].wall = true;
 						}
 					}
 					if (r == 17 && (c >= 0 && c <= 19)) {
-						if ((c >= 1 &&  c <= 5) || (c >= 7 && c <= 11) || (c >= 13 && c <= 18)) {
+						if (c == 10) {
+							mobs.Add(new Mob(c, r));
+							worldGrid [c, r].floor = true;
+						} else if ((c >= 1 &&  c <= 5) || (c >= 7 && c <= 11) || (c >= 13 && c <= 18)) {
 							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].wall = true;
 						}
 					}
 					if (r == 18 && (c >= 0 && c <= 19)) {
-						if (c == 5 || (c >= 7 && c <= 11) || (c >= 13 && c <= 18)) {
+						if (c == 7 || c == 9) {
+							mobs.Add(new Mob(c, r));
+							worldGrid [c, r].floor = true;
+						} else if (c == 16) {
+							boss = new Boss(c, r, "Lock4");
+				    			worldGrid[c, r].floor = true;
+						} else if (c == 5 || (c >= 8 && c <= 11) || (c >= 13 && c <= 18)) {
 							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].wall = true;
@@ -1707,7 +1718,10 @@ namespace SoulLand
 						}
 					}
 					if (r == 21 && (c >= 2 && c <= 19)) {
-						if ((c >= 3 && c <= 5) || (c >= 13 && c <= 18)) {
+						if (c == 17) {
+							mobs.Add(new Mob(c, r));
+							worldGrid [c, r].floor = true;
+						} else if ((c >= 3 && c <= 5) || (c >= 13 && c <= 18)) {
 							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].wall = true;
@@ -1721,7 +1735,10 @@ namespace SoulLand
 						}
 					}
 					if (r == 23 && (c >= 2 && c <= 19)) {
-						if ((c >= 3 && c <= 6) || (c >= 13 && c <= 18)) {
+						if (c == 5 || c == 13) {
+							mobs.Add(new Mob(c, r));
+							worldGrid [c, r].floor = true;
+						} else if ((c >= 3 && c <= 6) || (c >= 14 && c <= 18)) {
 							worldGrid [c, r].floor = true;
 						} else {
 							worldGrid [c, r].wall = true;

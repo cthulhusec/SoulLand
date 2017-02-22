@@ -4,6 +4,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using MonoGame.Extended.ViewportAdapters;
+using SoulLand.Util;
+using NAudio.Wave;
 
 namespace SoulLand
 {
@@ -21,7 +23,8 @@ namespace SoulLand
 		{
 			Intro,
 			MainMenu,
-			Level
+			Level,
+            Help
 		}
 		//Stores current state enum
 		public GameState gs;
@@ -29,13 +32,19 @@ namespace SoulLand
 		public State state;
 
 		//Logger Singleton
-		Logger GameLog;
+		public Logger GameLog;
 
 		public Vector2 baseScreenSize = new Vector2(1920, 1080);
 
 		public Matrix globalTransformation;
 
 		public GameData gameData;
+
+        public bool resume = false;
+
+
+        WaveOut waveOut;
+
 
 
 
@@ -46,7 +55,7 @@ namespace SoulLand
 
 			//Create Logger
 			GameLog = new Logger();
-
+            
 		}
 
 
@@ -54,7 +63,9 @@ namespace SoulLand
 		{
 			base.Initialize();
 
-			this.graphics.PreferredBackBufferWidth = 1920;
+            GameLog.Log("Initializing Game!");
+
+            this.graphics.PreferredBackBufferWidth = 1920;
 			this.graphics.PreferredBackBufferHeight = 1080;
 			this.graphics.ToggleFullScreen();
 			this.graphics.ApplyChanges();
@@ -67,14 +78,23 @@ namespace SoulLand
 			state = new LevelState(this);
 			gs = GameState.Level;
 
-			ChangeState (GameState.MainMenu);
+			ChangeState (GameState.Intro);
 
 			oldKeyboardState = Keyboard.GetState();
 
+            AudioFileReader reader = new AudioFileReader("Content/Assets/Sound/TechnoBackground.mp3");
+            LoopStream loop = new LoopStream(reader);
+            waveOut = new WaveOut();
+            waveOut.Init(loop);
+            
+            waveOut.Play();
+
+            ChangeVolume(gameData.audioVolume);
 
 
 
-		}
+
+        }
 
 		protected override void LoadContent()
 		{
@@ -95,8 +115,16 @@ namespace SoulLand
 					SaveSystem.SaveGameData (gameData);
 					ChangeState (GameState.MainMenu);
 				} else {
-					SaveSystem.SaveGameData (gameData);
-					Exit ();
+                    if (gs == GameState.MainMenu && ((MainMenuState)state).mState != MainMenuState.MenuState.main)
+                    {
+                        ((MainMenuState)state).mState = MainMenuState.MenuState.main;
+                    }
+                    else
+                    {
+                        GameLog.Log("Exiting Game!");
+                        SaveSystem.SaveGameData(gameData);
+                        Exit();
+                    }
 				}
 			}
 			switch (gs)
@@ -107,6 +135,12 @@ namespace SoulLand
 				case GameState.MainMenu:
 					state.Update (gameTime);
 					break;
+                case GameState.Intro:
+                    state.Update(gameTime);
+                    break;
+                case GameState.Help:
+                    state.Update(gameTime);
+                    break;
 			}
 
 					
@@ -133,10 +167,16 @@ namespace SoulLand
 				case GameState.Level:
 					state.Draw(gameTime);
 					break;
-				case GameState.MainMenu:
-					state.Draw (gameTime);
-					break;
-			}
+                case GameState.MainMenu:
+                    state.Draw(gameTime);
+                    break;
+                case GameState.Intro:
+                    state.Draw(gameTime);
+                    break;
+                case GameState.Help:
+                    state.Draw(gameTime);
+                    break;
+            }
 			base.Draw(gameTime);
 		}
 
@@ -147,6 +187,8 @@ namespace SoulLand
 
 		public void ChangeState(GameState gameState)
 		{
+
+            GameLog.Log("State Changed: " + gameState.ToString());
 
 			state.UnLoadContent ();
 
@@ -164,11 +206,24 @@ namespace SoulLand
 				state = new MainMenuState (this);
 				gs = gameState;
 					break;
+            case GameState.Help:
+                state = new HelpState(this);
+                gs = gameState;
+                    break;
 			}
 
 
 
 		}
+
+
+        public void ChangeVolume(float volume)
+        {
+            GameLog.Log("Volume Changed: " + volume.ToString());
+            gameData.audioVolume = volume;
+            SaveSystem.SaveGameData(gameData);
+            waveOut.Volume = volume/100;
+        }
 	}
 }
 

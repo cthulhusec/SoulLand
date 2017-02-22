@@ -8,12 +8,13 @@ using MonoGame.Extended;
 using MonoGame.Extended.ViewportAdapters;
 using MonoGame.Extended.BitmapFonts;
 using System.Collections.Generic;
+using SoulLand.Util;
 
 namespace SoulLand
 {
 	public class LevelState : State
 	{
-		private Camera2D cam;
+        private Camera2D cam;
 
 		private String tempPos;
 
@@ -31,6 +32,10 @@ namespace SoulLand
 
 		public bool showInv = false;
 
+        public bool alive = true;
+
+        CachedSound key = new CachedSound("Content/Assets/Sound/KeyEffect.mp3");
+
 		public LevelState (MainGame g) : base(g)
 		{
 
@@ -41,6 +46,8 @@ namespace SoulLand
 			cam.MaximumZoom = 2f;
 			cam.MinimumZoom = 0.5f;
 			if (!game.gameData.load) {
+                game.gameData.world = new World(20,20);
+                world = game.gameData.world;
 				tempPos = world.ChangeLevel ();
 				String[] temp = tempPos.Split (',');
 				game.gameData.player.posx = Int32.Parse (temp [0]);
@@ -52,164 +59,239 @@ namespace SoulLand
 		{
 			KeyboardState newState = Keyboard.GetState ();
 
-			if (!showInv) {
+			if (!showInv && alive) {
                 if (Keyboard.GetState().IsKeyDown(Keys.Up) && oldState.IsKeyDown(Keys.Up) != true)
                 {
                     game.gameData.player.Attack(world, 1);
-                    foreach (Mob a in world.mobs.ToArray())
+                    if (game.gameData.player.mobWaitMove == 0)
                     {
-                        if (world.worldGrid[a.posx, a.posy].renderable <= world.triggerNo)
+                        foreach (Mob a in world.mobs.ToArray())
                         {
-                            world = a.MobMove(world, game.gameData.player, a);
+                            if (world.worldGrid[a.posx, a.posy].renderable <= world.triggerNo)
+                            {
+                                world = a.MobMove(world, game.gameData.player, a);
+                            }
                         }
+                        if (world.boss != null)
+                        {
+                            if (world.worldGrid[world.boss.posx, world.boss.posy].renderable <= world.triggerNo)
+                            {
+                                world = world.boss.Move(world, game.gameData.player);
+                            }
+                        }
+                        game.GameLog.Log("Current mobWaitAttack is: " + game.gameData.player.mobWaitAttack.ToString());
                     }
-                    if (world.boss != null)
+                    else
                     {
-                        if (world.worldGrid[world.boss.posx, world.boss.posy].renderable <= world.triggerNo)
-                        {
-                            world = world.boss.Move(world, game.gameData.player);
-                        }
+                        game.gameData.player.mobWaitMove -= 1;
                     }
                 }
                 if (Keyboard.GetState().IsKeyDown(Keys.Right) && oldState.IsKeyDown(Keys.Right) != true)
                 {
                     game.gameData.player.Attack(world, 2);
-                    foreach (Mob a in world.mobs.ToArray())
+                    if (game.gameData.player.mobWaitMove == 0)
                     {
-                        if (world.worldGrid[a.posx, a.posy].renderable <= world.triggerNo)
+                        foreach (Mob a in world.mobs.ToArray())
                         {
-                            world = a.MobMove(world, game.gameData.player, a);
+                            if (world.worldGrid[a.posx, a.posy].renderable <= world.triggerNo)
+                            {
+                                world = a.MobMove(world, game.gameData.player, a);
+                            }
                         }
+                        if (world.boss != null)
+                        {
+                            if (world.worldGrid[world.boss.posx, world.boss.posy].renderable <= world.triggerNo)
+                            {
+                                world = world.boss.Move(world, game.gameData.player);
+                            }
+                        }
+                        game.GameLog.Log("Current mobWaitAttack is: " + game.gameData.player.mobWaitAttack.ToString());
                     }
-                    if (world.boss != null)
+                    else
                     {
-                        if (world.worldGrid[world.boss.posx, world.boss.posy].renderable <= world.triggerNo)
-                        {
-                            world = world.boss.Move(world, game.gameData.player);
-                        }
+                        game.gameData.player.mobWaitMove -= 1;
                     }
                 }
                 if (Keyboard.GetState().IsKeyDown(Keys.Down) && oldState.IsKeyDown(Keys.Down) != true)
                 {
                     game.gameData.player.Attack(world, 3);
-                    foreach (Mob a in world.mobs.ToArray())
+                    if (game.gameData.player.mobWaitMove == 0)
                     {
-                        world = a.MobMove(world, game.gameData.player, a);
-                    }
-                    if (world.boss != null)
-                    {
-                        if (world.worldGrid[world.boss.posx, world.boss.posy].renderable <= world.triggerNo)
+                        foreach (Mob a in world.mobs.ToArray())
                         {
-                            world = world.boss.Move(world, game.gameData.player);
+                            if (world.worldGrid[a.posx, a.posy].renderable <= world.triggerNo)
+                            {
+                                world = a.MobMove(world, game.gameData.player, a);
+                            }
                         }
+                        if (world.boss != null)
+                        {
+                            if (world.worldGrid[world.boss.posx, world.boss.posy].renderable <= world.triggerNo)
+                            {
+                                world = world.boss.Move(world, game.gameData.player);
+                            }
+                        }
+                        game.GameLog.Log("Current mobWaitAttack is: " + game.gameData.player.mobWaitAttack.ToString());
+                    }
+                    else
+                    {
+                        game.gameData.player.mobWaitMove -= 1;
                     }
                 }
                 if (Keyboard.GetState().IsKeyDown(Keys.Left) && oldState.IsKeyDown(Keys.Left) != true)
                 {
                     game.gameData.player.Attack(world, 4);
-                    foreach (Mob a in world.mobs.ToArray())
+                    if (game.gameData.player.mobWaitMove == 0)
                     {
-                        if (world.worldGrid[a.posx, a.posy].renderable <= world.triggerNo)
+                        foreach (Mob a in world.mobs.ToArray())
                         {
-                            world = a.MobMove(world, game.gameData.player, a);
+                            if (world.worldGrid[a.posx, a.posy].renderable <= world.triggerNo)
+                            {
+                                world = a.MobMove(world, game.gameData.player, a);
+                            }
                         }
+                        if (world.boss != null)
+                        {
+                            if (world.worldGrid[world.boss.posx, world.boss.posy].renderable <= world.triggerNo)
+                            {
+                                world = world.boss.Move(world, game.gameData.player);
+                            }
+                        }
+                        game.GameLog.Log("Current mobWaitAttack is: " + game.gameData.player.mobWaitAttack.ToString());
                     }
-                    if (world.boss != null)
+                    else
                     {
-                        if (world.worldGrid[world.boss.posx, world.boss.posy].renderable <= world.triggerNo)
-                        {
-                            world = world.boss.Move(world, game.gameData.player);
-                        }
+                        game.gameData.player.mobWaitMove -= 1;
                     }
                 }
                 if (Keyboard.GetState ().IsKeyDown (Keys.A) && oldState.IsKeyDown (Keys.A) != true && game.gameData.player.posx - 1 >= 0) {
-					//cam.Move(new Vector2(-5, 0));
-					foreach (Mob a in world.mobs.ToArray()) {
-                        if (world.worldGrid[a.posx, a.posy].renderable <= world.triggerNo)
+                    //cam.Move(new Vector2(-5, 0));
+                    if (game.gameData.player.mobWaitMove == 0)
+                    {
+                        foreach (Mob a in world.mobs.ToArray())
                         {
-                            world = a.MobMove(world, game.gameData.player, a);
+                            if (world.worldGrid[a.posx, a.posy].renderable <= world.triggerNo)
+                            {
+                                world = a.MobMove(world, game.gameData.player, a);
+                            }
                         }
-                    }
-                    if (world.boss != null) {
-                        if (world.worldGrid[world.boss.posx, world.boss.posy].renderable <= world.triggerNo)
+                        if (world.boss != null)
                         {
-                            world = world.boss.Move(world, game.gameData.player);
+                            if (world.worldGrid[world.boss.posx, world.boss.posy].renderable <= world.triggerNo)
+                            {
+                                world = world.boss.Move(world, game.gameData.player);
+                            }
                         }
+                        game.GameLog.Log("Current mobWaitAttack is: " + game.gameData.player.mobWaitAttack.ToString());
                     }
-					if (world.worldGrid [game.gameData.player.posx - 1, game.gameData.player.posy].wall) {
+                    else
+                    {
+                        game.gameData.player.mobWaitMove -= 1;
+                    }
+                    if (world.worldGrid [game.gameData.player.posx - 1, game.gameData.player.posy].wall) {
 
 					} else if (world.worldGrid [game.gameData.player.posx - 1, game.gameData.player.posy].door) {
-						world.worldGrid [game.gameData.player.posx - 1, game.gameData.player.posy].OpenDoor (game.gameData.inv);
+						if(world.worldGrid [game.gameData.player.posx - 1, game.gameData.player.posy].OpenDoor (game.gameData.inv))
+                            AudioEngine.Instance.PlaySound(key);
 					} else {
 						game.gameData.player.posx -= 1;
 					}
 				}
 				if (Keyboard.GetState ().IsKeyDown (Keys.D) && oldState.IsKeyDown (Keys.D) != true && game.gameData.player.posx + 1 < world.worldGrid.GetLength (0)) {
-					//cam.Move(new Vector2(5, 0));
-					foreach (Mob a in world.mobs.ToArray()) {
-                        if (world.worldGrid[a.posx, a.posy].renderable <= world.triggerNo)
-                        {
-                            world = a.MobMove(world, game.gameData.player, a);
-                        }
-                    }
-                    if (world.boss != null)
+                    //cam.Move(new Vector2(5, 0));
+                    if (game.gameData.player.mobWaitMove == 0)
                     {
-                        if (world.worldGrid[world.boss.posx, world.boss.posy].renderable <= world.triggerNo)
+                        foreach (Mob a in world.mobs.ToArray())
                         {
-                            world = world.boss.Move(world, game.gameData.player);
+                            if (world.worldGrid[a.posx, a.posy].renderable <= world.triggerNo)
+                            {
+                                world = a.MobMove(world, game.gameData.player, a);
+                            }
                         }
+                        if (world.boss != null)
+                        {
+                            if (world.worldGrid[world.boss.posx, world.boss.posy].renderable <= world.triggerNo)
+                            {
+                                world = world.boss.Move(world, game.gameData.player);
+                            }
+                        }
+                        game.GameLog.Log("Current mobWaitAttack is: " + game.gameData.player.mobWaitAttack.ToString());
+                    }
+                    else
+                    {
+                        game.gameData.player.mobWaitMove -= 1;
                     }
                     if (world.worldGrid [game.gameData.player.posx + 1, game.gameData.player.posy].wall) {
 
 					} else if (world.worldGrid [game.gameData.player.posx + 1, game.gameData.player.posy].door) {
-						world.worldGrid [game.gameData.player.posx + 1, game.gameData.player.posy].OpenDoor (game.gameData.inv);
-					} else {
+						if(world.worldGrid [game.gameData.player.posx + 1, game.gameData.player.posy].OpenDoor (game.gameData.inv))
+                            AudioEngine.Instance.PlaySound(key);
+                    } else {
 						game.gameData.player.posx += 1;
 					}
 				}
 				if (Keyboard.GetState ().IsKeyDown (Keys.W) && oldState.IsKeyDown (Keys.W) != true && game.gameData.player.posy - 1 >= 0) {
-					//cam.Move(new Vector2(0, -5));
-					foreach (Mob a in world.mobs.ToArray()) {
-                        if (world.worldGrid[a.posx, a.posy].renderable <= world.triggerNo)
-                        {
-                            world = a.MobMove(world, game.gameData.player, a);
-                        }
-                    }
-                    if (world.boss != null)
+                    //cam.Move(new Vector2(0, -5));
+                    if (game.gameData.player.mobWaitMove == 0)
                     {
-                        if (world.worldGrid[world.boss.posx, world.boss.posy].renderable <= world.triggerNo)
+                        foreach (Mob a in world.mobs.ToArray())
                         {
-                            world = world.boss.Move(world, game.gameData.player);
+                            if (world.worldGrid[a.posx, a.posy].renderable <= world.triggerNo)
+                            {
+                                world = a.MobMove(world, game.gameData.player, a);
+                            }
                         }
+                        if (world.boss != null)
+                        {
+                            if (world.worldGrid[world.boss.posx, world.boss.posy].renderable <= world.triggerNo)
+                            {
+                                world = world.boss.Move(world, game.gameData.player);
+                            }
+                        }
+                        game.GameLog.Log("Current mobWaitAttack is: " + game.gameData.player.mobWaitAttack.ToString());
+                    } else
+                    {
+                        game.gameData.player.mobWaitMove -= 1;
                     }
                     if (world.worldGrid [game.gameData.player.posx, game.gameData.player.posy - 1].wall) {
 
 					} else if (world.worldGrid [game.gameData.player.posx, game.gameData.player.posy - 1].door) {
-						world.worldGrid [game.gameData.player.posx, game.gameData.player.posy - 1].OpenDoor (game.gameData.inv);
-					} else {
+						if(world.worldGrid [game.gameData.player.posx, game.gameData.player.posy - 1].OpenDoor (game.gameData.inv))
+                            AudioEngine.Instance.PlaySound(key);
+                    } else {
 						game.gameData.player.posy -= 1;
 					}
 				}
 				if (Keyboard.GetState ().IsKeyDown (Keys.S) && oldState.IsKeyDown (Keys.S) != true && game.gameData.player.posy + 1 < world.worldGrid.GetLength (1)) {
-					//cam.Move(new Vector2(0, 5));
-					foreach (Mob a in world.mobs.ToArray()) {
-                        if (world.worldGrid[a.posx, a.posy].renderable <= world.triggerNo)
-                        {
-                            world = a.MobMove(world, game.gameData.player, a);
-                        }
-                    }
-                    if (world.boss != null)
+                    //cam.Move(new Vector2(0, 5));
+                    if (game.gameData.player.mobWaitMove == 0)
                     {
-                        if (world.worldGrid[world.boss.posx, world.boss.posy].renderable <= world.triggerNo)
+                        foreach (Mob a in world.mobs.ToArray())
                         {
-                            world = world.boss.Move(world, game.gameData.player);
+                            if (world.worldGrid[a.posx, a.posy].renderable <= world.triggerNo)
+                            {
+                                world = a.MobMove(world, game.gameData.player, a);
+                            }
                         }
+                        if (world.boss != null)
+                        {
+                            if (world.worldGrid[world.boss.posx, world.boss.posy].renderable <= world.triggerNo)
+                            {
+                                world = world.boss.Move(world, game.gameData.player);
+                            }
+                        }
+                        game.GameLog.Log("Current mobWaitAttack is: " + game.gameData.player.mobWaitAttack.ToString());
+                    }
+                    else
+                    {
+                        game.gameData.player.mobWaitMove -= 1;
                     }
                     if (world.worldGrid [game.gameData.player.posx, game.gameData.player.posy + 1].wall) {
 
 					} else if (world.worldGrid [game.gameData.player.posx, game.gameData.player.posy + 1].door) {
-						world.worldGrid [game.gameData.player.posx, game.gameData.player.posy + 1].OpenDoor (game.gameData.inv);
-					} else {
+						if(world.worldGrid [game.gameData.player.posx, game.gameData.player.posy + 1].OpenDoor (game.gameData.inv))
+                            AudioEngine.Instance.PlaySound(key);
+                    } else {
 						game.gameData.player.posy += 1;
 					}
 				}
@@ -236,7 +318,7 @@ namespace SoulLand
 					
 				cam.Position = new Vector2 ((game.gameData.player.posx * 20 + 10) - 960, (game.gameData.player.posy * 20 + 10) - 540);
 			}
-            else
+            else if (alive)
             {
                 Inventory inv = game.gameData.inv;
                 if (Keyboard.GetState().IsKeyDown(Keys.W) && oldState.IsKeyDown(Keys.W) != true)
@@ -257,19 +339,41 @@ namespace SoulLand
                 }
                 if (Keyboard.GetState().IsKeyDown(Keys.Enter) && oldState.IsKeyDown(Keys.Enter) != true)
                 {
-                    if (inv.items[cursorPos-1].GetType() == typeof(Charm))
+                    if (cursorPos > 0)
                     {
-                        inv.RemoveItem(cursorPos-1);
-                    } else
-                    {
-                        referenceText = "This item is not consumable.";
+                        if (inv.items[cursorPos - 1].GetType() == typeof(Charm))
+                        {
+                            if (inv.items[cursorPos - 1].name.Equals("Delay Mob Attack Charm"))
+                            {
+                                game.gameData.player.mobWaitAttack++;
+                                game.GameLog.Log("Current mobWaitAttack is: " + game.gameData.player.mobWaitAttack.ToString());
+                            }
+                            else if (inv.items[cursorPos - 1].name.Equals("Double Move Charm"))
+                            {
+                                game.gameData.player.mobWaitMove++;
+                                game.GameLog.Log("Current mobWaitMove is: " + game.gameData.player.mobWaitMove.ToString());
+                            }
+                            else if (inv.items[cursorPos - 1].name.Equals("Health Charm"))
+                            {
+                                game.gameData.player.health += 2;
+                                game.GameLog.Log("Current health is: " + game.gameData.player.health.ToString());
+                            }
+                            inv.RemoveItem(cursorPos - 1);
+                        }
+                        else
+                        {
+                            referenceText = "This item is not consumable.";
+                        }
                     }
                 }
 				if (Keyboard.GetState ().IsKeyDown (Keys.I) && oldState.IsKeyDown (Keys.I) != true) {
 					showInv = false;
 				}
 
-			}
+			} else
+            {
+                
+            }
 
 			if (world.worldGrid [game.gameData.player.posx, game.gameData.player.posy].end == true) {
 				tempPos = world.ChangeLevel ();
@@ -284,11 +388,19 @@ namespace SoulLand
             }
 
 			oldState = newState;
+
+            if (game.gameData.player.health <= 0)
+            {
+                game.GameLog.Log("Player Died");
+                game.gameData.world = null;
+                SaveSystem.SaveGameData(game.gameData);
+                alive = false;
+            }
 		}
 
 		public override void Draw(GameTime gameTime)
 		{
-			if (!showInv) {
+			if (!showInv && alive) {
 				
 				var transformMatrix = cam.GetViewMatrix ();
 				transformMatrix *= game.globalTransformation;
@@ -305,8 +417,8 @@ namespace SoulLand
 							} else if (world.worldGrid [r, c].door) {
 								MonoGame.Extended.Shapes.SpriteBatchExtensions.DrawRectangle (spriteBatch, new MonoGame.Extended.Shapes.RectangleF (r * 20, c * 20, 20, 20), Color.White, 10);
 							} else if (world.worldGrid[r, c].floor || world.worldGrid[r, c].trigger) {
-								MonoGame.Extended.Shapes.SpriteBatchExtensions.DrawRectangle (spriteBatch, new MonoGame.Extended.Shapes.RectangleF (r * 20, c * 20, 20, 20), Color.Gray, 10);
-								if (world.worldGrid [r, c].item != null) {
+                                MonoGame.Extended.Shapes.SpriteBatchExtensions.DrawRectangle(spriteBatch, new MonoGame.Extended.Shapes.RectangleF(r * 20, c * 20, 20, 20), Color.Gray, 10);
+                                if (world.worldGrid [r, c].item != null) {
 									MonoGame.Extended.Shapes.SpriteBatchExtensions.DrawCircle (spriteBatch, new MonoGame.Extended.Shapes.CircleF (new Vector2 (r * 20 + 10, c * 20 + 10), 10), sides: 50, color: Color.HotPink, thickness: 10);
 								} else if (world.worldGrid [r, c].mob != null) {
 									MonoGame.Extended.Shapes.SpriteBatchExtensions.DrawCircle (spriteBatch, new MonoGame.Extended.Shapes.CircleF (new Vector2 (r * 20 + 10, c * 20 + 10), 10), sides: 50, color: Color.Green, thickness: 10);
@@ -318,7 +430,7 @@ namespace SoulLand
 					}
 				}
 
-                MonoGame.Extended.Shapes.SpriteBatchExtensions.DrawCircle(spriteBatch, new MonoGame.Extended.Shapes.CircleF(new Vector2(game.gameData.player.posx * 20 + 10, game.gameData.player.posy * 20 + 10), 10), sides: 50, color: Color.Aquamarine, thickness: 10);
+                MonoGame.Extended.Shapes.SpriteBatchExtensions.DrawCircle(spriteBatch, new MonoGame.Extended.Shapes.CircleF(new Vector2(game.gameData.player.posx * 20 + 10, game.gameData.player.posy * 20 + 10), 9), sides: 50, color: Color.SlateBlue, thickness: 10);
 
                 spriteBatch.End ();
 				spriteBatch.Begin ();
@@ -330,15 +442,19 @@ namespace SoulLand
                 }
                 if (world.triggerNo <= 1 && world.currentLevel == 1)
                 {
-                    spriteBatch.DrawString(mainTextFont, "Press  W  A  S  D to move and  F  to pick up items.", new Vector2(30, game.baseScreenSize.Y - 1000), Color.AntiqueWhite);
+                    spriteBatch.DrawString(mainTextFont, "Press  W  A  S  D to move and  F  to pick up items.", new Vector2(30, game.baseScreenSize.Y - 60), Color.AntiqueWhite);
                 }
                 else if (world.currentLevel == 1)
                 {
-                    spriteBatch.DrawString(mainTextFont, "Use  ARROW KEYS  to attack mobs.", new Vector2(30, game.baseScreenSize.Y - 1000), Color.AntiqueWhite);
+                    spriteBatch.DrawString(mainTextFont, "Use  ARROW KEYS  to attack mobs.", new Vector2(30, game.baseScreenSize.Y - 60), Color.AntiqueWhite);
+                }
+                else if (world.currentLevel == 9)
+                {
+                    spriteBatch.DrawString(mainTextFont, "YOU WIN", new Vector2((game.baseScreenSize.X/2) - (mainTextFont.MeasureString("YOU WIN").X / 2), game.baseScreenSize.Y / 2 - 10), Color.Goldenrod);
                 }
                 spriteBatch.End();
 
-            } else {
+            } else if (alive) {
 				Inventory inv = game.gameData.inv;
 				spriteBatch.Begin(transformMatrix: game.globalTransformation);
 				//spriteBatch.DrawString(mainTextFont, "SOUL LAND", new Vector2(game.baseScreenSize.X / 2-(mainTextFont.MeasureString("Soul Land") / 2).X, game.baseScreenSize.Y / 20), Color.Plum );
@@ -348,18 +464,24 @@ namespace SoulLand
                 if (inv.items.Count != 0)
                 {
                     MonoGame.Extended.Shapes.SpriteBatchExtensions.DrawCircle(spriteBatch, new MonoGame.Extended.Shapes.CircleF(new Vector2(30, 15 + (30 * (cursorPos + 1))), 10), sides: 4, color: Color.AntiqueWhite, thickness: 10);
-                    spriteBatch.DrawString(mainTextFont, referenceText, new Vector2(30, game.baseScreenSize.Y - 1000), Color.AntiqueWhite);
+                    spriteBatch.DrawString(mainTextFont, referenceText, new Vector2(30, game.baseScreenSize.Y - 60), Color.AntiqueWhite);
 
                 }
                 else
                 {
-                    spriteBatch.DrawString(mainTextFont, "Inventory is empty.", new Vector2(30, game.baseScreenSize.Y - 10), Color.AntiqueWhite);
+                    spriteBatch.DrawString(mainTextFont, "Inventory is empty.", new Vector2(30, game.baseScreenSize.Y - 60), Color.AntiqueWhite);
 
                 }
                 spriteBatch.End ();
 
-			}
-		}
+			} else
+            {
+                spriteBatch.Begin(transformMatrix: game.globalTransformation);
+                spriteBatch.DrawString(mainTextFont, "YOU DIED", new Vector2((game.baseScreenSize.X / 2) - (mainTextFont.MeasureString("YOU DIED").X / 2), game.baseScreenSize.Y / 2 - 100), Color.Red);
+                spriteBatch.DrawString(mainTextFont, "Press  ESCAPE  to return to Main Menu", new Vector2((game.baseScreenSize.X / 2) - (mainTextFont.MeasureString("Press  ESCAPE  to return to Main Menu").X / 2), game.baseScreenSize.Y / 2 + 100), Color.Red);
+                spriteBatch.End();
+            }
+        }
 
 		protected override void LoadContent()
 		{

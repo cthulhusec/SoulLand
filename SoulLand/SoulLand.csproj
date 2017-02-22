@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -30,6 +30,10 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NAudio, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.1.8.0\lib\net35\NAudio.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="MonoGame.Framework">
       <HintPath>..\packages\MonoGame.Framework.DesktopGL.3.5.1.1679\lib\net40\MonoGame.Framework.dll</HintPath>
@@ -50,7 +54,9 @@
     <Compile Include="MainGame.cs" />
     <Compile Include="Player\Inventory.cs" />
     <Compile Include="Player\Player.cs" />
+    <Compile Include="Util\AudioEngine.cs" />
     <Compile Include="Util\Logger.cs" />
+    <Compile Include="Util\LoopStream.cs" />
     <Compile Include="Util\SaveSystem.cs" />
     <Compile Include="World\World.cs" />
     <Compile Include="States\State.cs" />
@@ -65,18 +71,9 @@
     <Compile Include="World\Tiles\Tile.cs" />
     <Compile Include="World\Mobs\Mob.cs" />
     <Compile Include="World\Mobs\Boss.cs" />
+    <Compile Include="States\HelpState.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Player\" />
-    <Folder Include="Util\" />
-    <Folder Include="World\" />
-    <Folder Include="States\" />
-    <Folder Include="Content\" />
-    <Folder Include="World\Items\" />
-    <Folder Include="World\Tiles\" />
-    <Folder Include="World\Mobs\" />
-    <Folder Include="Content\Assets\Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <None Include="packages.config" />
@@ -86,6 +83,15 @@
     <None Include="Content\Assets\Images\Wall.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Content\Assets\Sound\ClickEffect.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Assets\Sound\KeyEffect.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Assets\Sound\TechnoBackground.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="Content\MainContent.mgcb" />
     <Content Include="Content\Assets\Fonts\PressPlayFont.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -4,7 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
 
-namespace SoulLand
+namespace SoulLand.Util
 {
 	public class SaveSystem
 	{
@@ -31,11 +31,11 @@ namespace SoulLand
 
 		static public void SaveGameData(GameData gd)
 		{
-			string path = Directory.GetCurrentDirectory() + "\\GameSave.bin";
-			IFormatter formatter = new BinaryFormatter();  
-			Stream stream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None);  
-			formatter.Serialize(stream, gd);  
-			stream.Close();
+            string path = Directory.GetCurrentDirectory() + "\\GameSave.bin";
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, gd);
+            stream.Close();
 		}
 			
 	}

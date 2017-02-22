@@ -26,7 +26,7 @@ namespace SoulLand
 			return false;
 		}
 		public World Move(World world, Player player) {
-			if (Within (player)) {
+			if (Within (player) && player.mobWaitAttack == 0) {
                 if (((posx > player.posx - 2 && posy == player.posy) && (posx < player.posx + 2 && posy == player.posy)) || ((posx == player.posx && posy > player.posy - 2) && (posx == player.posx && posy < player.posy + 2)))
                 {
                     if (health <= 0)

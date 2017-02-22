@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-namespace SoulLand
+namespace SoulLand.Util
 {
 	public class Logger
 	{
@@ -20,7 +20,7 @@ namespace SoulLand
 		}
 
 		//Log standard message with timestamp to log file and console
-		public static void Log(string message)
+		public void Log(string message)
 		{
 			Console.ForegroundColor = ConsoleColor.Cyan;
 			Console.Write("[{0}] Log Message: ", DateTime.Now.ToString("h:mm:ss tt"));

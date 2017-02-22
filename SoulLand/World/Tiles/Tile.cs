@@ -26,14 +26,20 @@ namespace SoulLand
 
 		public Tile()
 		{
+
 		}
 
 
-		public void OpenDoor (Inventory inv)
+		public bool OpenDoor (Inventory inv)
 		{
 			if (inv.UseKey (keypass)) {
 				door = false;
+                return true;
 			}
+            else
+            {
+                return false;
+            }
 
 		}
 

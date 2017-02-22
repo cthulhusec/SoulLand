@@ -5,13 +5,12 @@ namespace SoulLand
 	[Serializable]
 	public class Charm : Item
 	{
-        public int Type;
         public bool selectable = true;
 
 
-		public Charm (String n, int tempType) : base(n)
+		public Charm (String n) : base(n)
 		{
-            Type = tempType;
+
 		}
 	}
 }

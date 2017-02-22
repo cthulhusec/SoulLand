@@ -7,8 +7,10 @@ namespace SoulLand
 	{
 		public int posx;
 		public int posy;
+        public int mobWaitAttack;
+        public int mobWaitMove;
 
-		public int health;
+        public int health;
 
 
 		public Player()

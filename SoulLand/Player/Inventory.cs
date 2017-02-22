@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SoulLand.Util;
 namespace SoulLand
 {
 	[Serializable]
@@ -28,7 +29,6 @@ namespace SoulLand
 			*/
 			items.Add (item);
 			return true;
-			return false;
 		}
 			
 

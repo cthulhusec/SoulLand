@@ -34,3 +34,59 @@ C:\Users\gwl07\Desktop\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\NVor
 C:\Users\gwl07\Desktop\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\OpenTK.dll
 C:\Users\gwl07\Desktop\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\MonoGame.Framework.xml
 C:\Users\gwl07\Desktop\SoulLand - For Steven and Garrett\SoulLand\obj\x86\Debug\SoulLand.csprojResolveAssemblyReference.cache
+E:\SoulLand - For Steven and Garrett\SoulLand\obj\x86\Debug\SoulLand.csprojResolveAssemblyReference.cache
+E:\SoulLand - For Steven and Garrett\SoulLand\obj\x86\Debug\SoulLand.exe
+E:\SoulLand - For Steven and Garrett\SoulLand\obj\x86\Debug\SoulLand.pdb
+F:\SoulLand - For Steven and Garrett\SoulLand\obj\x86\Debug\SoulLand.csprojResolveAssemblyReference.cache
+F:\SoulLand - For Steven and Garrett\SoulLand\obj\x86\Debug\SoulLand.exe
+F:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\Content\Assets\Fonts\PressPlayFont.xnb
+F:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\Content\Assets\Fonts\PressPlayFont_0.xnb
+F:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\SoulLand.exe
+F:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\SoulLand.pdb
+F:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\MonoGame.Extended.dll
+F:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\MonoGame.Framework.dll
+F:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\NVorbis.dll
+F:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\OpenTK.dll
+F:\SoulLand - For Steven and Garrett\SoulLand\bin\Debug\MonoGame.Framework.xml
+F:\SoulLand - For Steven and Garrett\SoulLand\obj\x86\Debug\SoulLand.pdb
+Z:\SoulLand - A Group Effort\SoulLand\obj\x86\Debug\SoulLand.csprojResolveAssemblyReference.cache
+Z:\SoulLand - A Group Effort\SoulLand\obj\x86\Debug\SoulLand.exe
+Z:\SoulLand - A Group Effort\SoulLand\bin\Debug\Content\Assets\Fonts\PressPlayFont.xnb
+Z:\SoulLand - A Group Effort\SoulLand\bin\Debug\Content\Assets\Fonts\PressPlayFont_0.xnb
+Z:\SoulLand - A Group Effort\SoulLand\bin\Debug\SoulLand.exe
+Z:\SoulLand - A Group Effort\SoulLand\bin\Debug\SoulLand.pdb
+Z:\SoulLand - A Group Effort\SoulLand\bin\Debug\MonoGame.Extended.dll
+Z:\SoulLand - A Group Effort\SoulLand\bin\Debug\MonoGame.Framework.dll
+Z:\SoulLand - A Group Effort\SoulLand\bin\Debug\NVorbis.dll
+Z:\SoulLand - A Group Effort\SoulLand\bin\Debug\OpenTK.dll
+Z:\SoulLand - A Group Effort\SoulLand\bin\Debug\MonoGame.Framework.xml
+Z:\SoulLand - A Group Effort\SoulLand\obj\x86\Debug\SoulLand.pdb
+C:\Users\gwl07\Desktop\SoulLand - A Group Effort\SoulLand\obj\x86\Debug\SoulLand.exe
+C:\Users\gwl07\Desktop\SoulLand - A Group Effort\SoulLand\obj\x86\Debug\SoulLand.pdb
+C:\Users\gwl07\Desktop\SoulLand - A Group Effort\SoulLand\bin\Debug\Content\Assets\Fonts\PressPlayFont.xnb
+C:\Users\gwl07\Desktop\SoulLand - A Group Effort\SoulLand\bin\Debug\Content\Assets\Fonts\PressPlayFont_0.xnb
+C:\Users\gwl07\Desktop\SoulLand - A Group Effort\SoulLand\bin\Debug\SoulLand.exe
+C:\Users\gwl07\Desktop\SoulLand - A Group Effort\SoulLand\bin\Debug\SoulLand.pdb
+C:\Users\gwl07\Desktop\SoulLand - A Group Effort\SoulLand\bin\Debug\MonoGame.Extended.dll
+C:\Users\gwl07\Desktop\SoulLand - A Group Effort\SoulLand\bin\Debug\MonoGame.Framework.dll
+C:\Users\gwl07\Desktop\SoulLand - A Group Effort\SoulLand\bin\Debug\NVorbis.dll
+C:\Users\gwl07\Desktop\SoulLand - A Group Effort\SoulLand\bin\Debug\OpenTK.dll
+C:\Users\gwl07\Desktop\SoulLand - A Group Effort\SoulLand\bin\Debug\MonoGame.Framework.xml
+C:\Users\gwl07\Desktop\SoulLand - A Group Effort\SoulLand\obj\x86\Debug\SoulLand.csprojResolveAssemblyReference.cache
+S:\SoulLand\SoulLand\obj\x86\Debug\SoulLand.exe
+S:\SoulLand\SoulLand\obj\x86\Debug\SoulLand.pdb
+S:\SoulLand\SoulLand\bin\Debug\Content\Assets\Fonts\PressPlayFont.xnb
+S:\SoulLand\SoulLand\bin\Debug\Content\Assets\Fonts\PressPlayFont_0.xnb
+S:\SoulLand\SoulLand\bin\Debug\SoulLand.exe
+S:\SoulLand\SoulLand\bin\Debug\SoulLand.pdb
+S:\SoulLand\SoulLand\bin\Debug\MonoGame.Extended.dll
+S:\SoulLand\SoulLand\bin\Debug\MonoGame.Framework.dll
+S:\SoulLand\SoulLand\bin\Debug\NVorbis.dll
+S:\SoulLand\SoulLand\bin\Debug\OpenTK.dll
+S:\SoulLand\SoulLand\bin\Debug\MonoGame.Framework.xml
+S:\SoulLand\SoulLand\obj\x86\Debug\SoulLand.csprojResolveAssemblyReference.cache
+S:\SoulLand\SoulLand\bin\Debug\Content\Assets\Sound\ClickEffect.mp3
+S:\SoulLand\SoulLand\bin\Debug\Content\Assets\Sound\KeyEffect.mp3
+S:\SoulLand\SoulLand\bin\Debug\Content\Assets\Sound\TechnoBackground.mp3
+S:\SoulLand\SoulLand\bin\Debug\NAudio.dll
+S:\SoulLand\SoulLand\bin\Debug\NAudio.xml

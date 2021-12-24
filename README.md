@@ -1,5 +1,7 @@
 # SoulLand
 
+## In loving memory of Steven "NerdyAce" Acevedo
+
 This is a small 2D, turn based, dungeon strategy game developed for the Bussiness Proffesionals of America Software Engineering Team Competition in for the 2016-17 season. 
 
 **Features:**  
